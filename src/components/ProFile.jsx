@@ -1,32 +1,34 @@
 import  React from 'react';
+import s from './ProFile.module.css';
 import PhotoFace from '../img/mc.png';
 import GalaxyPhoto from '../img/galaxy.jpg';
 import Mypost from './Mypost';
 
+
 const ProFile = () => {
     return (
-        <div className='contentBlock'>
-            <div className='contentImg'>
-                    <img className='headerContent' src={GalaxyPhoto} alt="bg"/>
+        <div className={s.contentBlock}>
+            <div className={s.contentImg}>
+                    <img className={s.headerContent} src={GalaxyPhoto} alt="bg"/>
             </div>
-            <div className='contentImg__card'>
-                <div className="contentImg__card_img dflex">
+            <div className={s.contentImg__card}>
+                <div className={`${s.contentImg__card_img} ${s.dflex}`}>
                     <img src={PhotoFace} alt="face" />
                     
-                    <div className="contentImg__card_info">
-                        <p className="contentImg__card_info_name">
+                    <div className={s.contentImg__card_info}>
+                        <p className={s.contentImg__card_info_name}>
                             Kozyrskyi Oleksandr
                         </p>
-                        <p className="contentImg__card_info_date">
+                        <p className={s.contentImg__card_info_date}>
                             Date of birth: 2000
                         </p>
-                        <p className="contentImg__card_info_city">
+                        <p className={s.contentImg__card_info_city}>
                             City: Kyiv
                         </p>
-                        <p className="contentImg__card_info_education">
+                        <p className={s.contentImg__card_info_education}>
                             Education: NUTSU
                         </p>
-                        <p className="contentImg__card_info_webSite">
+                        <p className={s.contentImg__card_info_webSite}>
                             Web site: www.mysite.com
                         </p>
                     </div>

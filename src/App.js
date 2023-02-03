@@ -4,7 +4,6 @@ import Header from './components/Header';
 import NavBar from './components/NavBar';
 
 
-// <App />
 const App = () => {
   return (
     <div className='app-wrapper'>
@@ -12,13 +11,7 @@ const App = () => {
           <Header />
           <NavBar/>
         </div>
-        
-      
-      
-      
-      
     </div>);
 }
 
 export default App;
-// export default Header;
