@@ -1,7 +1,7 @@
 // import  React from 'react';
 import './App.css';
-import Header from './components/Header';
-import NavBar from './components/NavBar';
+import Header from './components/Header/Header';
+import NavBar from './components/Navbar/NavBar';
 
 
 const App = () => {
