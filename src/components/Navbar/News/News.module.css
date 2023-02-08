@@ -1,0 +1,8 @@
+.contentBlock {
+    padding: 20px;
+    box-shadow: 0px 3px 8px rgb(74, 231, 158);
+    border-radius: 5px;
+    margin: 10px;
+    width: 80%;
+    background: #fff;
+}

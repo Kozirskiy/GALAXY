@@ -1,0 +1,24 @@
+.myPost__old img{
+    display: block;
+    margin-right: 20px;
+    }
+    .myPost__old {
+      display: flex;
+      margin-bottom: 10px;
+      border-bottom: 1px solid rgba(78, 78, 78, 0.137);
+    }
+.postStyle span {
+  display: flex;
+  justify-content: end;
+  margin-bottom: 20px;
+  font-size: 12px;
+  font-weight: 400;
+  cursor: pointer;
+  
+}
+.iconStyle:hover {
+ font-weight: 700;
+ padding-right: 10px;
+ color: rgb(0, 27, 146);
+ transition: all 1s ease-out 0.5s;
+}
