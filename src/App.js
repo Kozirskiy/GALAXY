@@ -4,7 +4,7 @@ import Header from './components/Header/Header';
 import NavBar from './components/Navbar/NavBar';
 
 
-const App = () => {
+const App = (props) => {
   return (
     <div className='app-wrapper'>
         <div className='container'>

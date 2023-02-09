@@ -6,3 +6,69 @@
   width: 80%;
   background: #fff;
 }
+.dflex {
+  display: flex;
+}
+.contentBlock h2 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  color:rgb(0, 0, 0);
+  margin-bottom: 30px;
+}
+.dialogs {
+  display: flex;
+  flex-direction: column;
+  width: 20%;
+  margin: 10px;
+  border-right: 1px solid rgba(212, 212, 212, 0.76);
+}
+.messages {
+  display: block;
+  width: 80%;
+  margin: 10px;
+  border-radius: 5px;
+  /* border: 1px solid rgb(183, 255, 251); */
+  
+}
+.item {
+  margin-bottom: 30px;
+  text-decoration: none;
+  color: rgb(0, 0, 43);
+  display: block;
+  padding: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  
+}
+.messagesItem {
+  
+}
+.item:hover {
+  color:rgb(0, 212, 113);
+  cursor: pointer;
+  padding-left: 15px;
+  transition: all 2s ease-out .5s;
+  font-weight: 700;
+  /* border-bottom: 1px dashed green; */
+}
+.messagesBlock {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  box-shadow: 0px 3px 8px rgba(125, 248, 191, 0.699);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.messagesBlock:hover {
+  box-shadow: 0px 3px 8px rgba(48, 86, 255, 0.856);
+  transition: all 1s ease-out .5s;
+}
+.messagesBlock img {
+  margin: 15px;
+  width: 40px;
+  height: 40px;
+}
+.active {
+  color: gold;
+}

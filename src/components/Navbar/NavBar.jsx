@@ -2,10 +2,11 @@ import React from 'react';
 import ProFile from './Profile/ProFile';
 import s from './Navbar.module.css';
 import Dialogs from './Dialogs/Dialogs';
-import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import News from './News/News';
 import Music from './Music/Music';
 import SettingGalaxy from './SettingGalaxy/SettingGalaxy';
+// import { NavLink } from 'react-router-dom';
 
 
 const NavBar = () => {
@@ -15,18 +16,18 @@ const NavBar = () => {
         <div className={`${s.nav__wrapper} ${s.dfex}`}>
           <div className={s.nav__link}>
             <div>
-              <a className={s.nav__links} href='/profile'>Profile</a>
+              <NavLink className = { navData => navData.isActive ? s.active : s.item } to='/profile'>Profile</NavLink>
             </div>
             <div>
-              <a className={s.nav__links} href='/dialogs'>Message</a>
+              <NavLink className = { navData => navData.isActive ? s.active : s.item } to='/dialogs'>Message</NavLink>
             </div><div>
-              <a className={s.nav__links} href='/news'>News</a>
+              <NavLink className = { navData => navData.isActive ? s.active : s.item } to='/news'>News</NavLink>
             </div>
             <div>
-              <a className={s.nav__links} href='/music'>Music</a>
+              <NavLink className = { navData => navData.isActive ? s.active : s.item } to='/music'>Music</NavLink>
             </div>
             <div>
-              <a className={s.nav__links} href='/settingGalaxy'>Settings Galaxy</a>
+              <NavLink className = { navData => navData.isActive ? s.active : s.item } to='/settingGalaxy'>Settings Galaxy</NavLink>
             </div>
           </div>
           <Routes>
@@ -39,7 +40,6 @@ const NavBar = () => {
         </div>
       </nav>
     </BrowserRouter>
-
   )
 }
 
