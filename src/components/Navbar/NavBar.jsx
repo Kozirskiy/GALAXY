@@ -32,7 +32,7 @@ const NavBar = () => {
           </div>
           <Routes>
             <Route path="/profile" element={<ProFile />} />
-            <Route path="/dialogs" element={<Dialogs />} />
+            <Route path="/dialogs/*" element={<Dialogs />} />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/settingGalaxy" element={<SettingGalaxy />} />

@@ -1,0 +1,16 @@
+.contentImg__card_img {
+    display: flex;
+}
+.contentImg__card_img img {
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+}
+.contentImg__card_info p {
+  margin: 0;
+}
+.contentImg__card_info_name {
+  margin-bottom: 25px !important;
+  font-weight: 700;
+  padding-top: 20px;
+}

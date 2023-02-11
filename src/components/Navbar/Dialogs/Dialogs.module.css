@@ -21,8 +21,12 @@
   flex-direction: column;
   width: 20%;
   margin: 10px;
+  
+}
+.contentBlock__dialogs {
   border-right: 1px solid rgba(212, 212, 212, 0.76);
 }
+
 .messages {
   display: block;
   width: 80%;
@@ -32,16 +36,21 @@
   
 }
 .item {
-  margin-bottom: 30px;
+  /* margin-bottom: 30px;
   text-decoration: none;
   color: rgb(0, 0, 43);
   display: block;
   padding: 5px;
   border-radius: 5px;
+  text-decoration: none; */
+ 
   text-decoration: none;
-  
-}
-.messagesItem {
+  color: rgb(0, 0, 43);
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  text-decoration: none;
   
 }
 .item:hover {
@@ -70,5 +79,12 @@
   height: 40px;
 }
 .active {
-  color: gold;
+  color: rgb(2, 170, 16);
+  text-decoration: none;
+  display: block;
+  margin-bottom: 10px;
+  padding: 5px;
+  border-radius: 5px;
+  text-decoration: none;
+  font-weight: 700;
 }
