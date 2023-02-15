@@ -5,13 +5,17 @@ import NavBar from './components/Navbar/NavBar';
 
 
 const App = (props) => {
-  return (
-    <div className='app-wrapper'>
-        <div className='container'>
-          <Header />
-          <NavBar />
-        </div>
-    </div>);
-}
+    return ( <
+      div className = 'app-wrapper' >
+      <
+      div className = 'container' >
+      <
+      Header / >
+      <
+      NavBar / >
+      <
+      /div> <
+      /div>);
+    }
 
-export default App;
+    export default App;

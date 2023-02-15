@@ -7,7 +7,7 @@ const ProFileInfo = (props) => {
         <div className={s.contentImg__card}>
             <div className={`${s.contentImg__card_img} ${s.dflex}`}>
                 <img src={PhotoFace} alt="face" />
-
+                
                 <div className={s.contentImg__card_info}>
                     <p className={s.contentImg__card_info_name}>
                         Kozyrskyi Oleksandr

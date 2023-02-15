@@ -1,28 +1,19 @@
 ul li {
   list-style-type: none;
 }
+
 body {
   font-size: 18px;
   font-weight: 400;
   font-family: 'Roboto Condensed', sans-serif;
   background-color:rgb(243, 243, 243);
 }
+
 .dflex {
   display: flex;
 }
+
 .container {
   width: 1170px;
   margin: 0 auto;
 }
-
-
-/* Header */
-
-/* NavBar */
-
-/* ProFile */
-
-/* My posts */
-
-
-

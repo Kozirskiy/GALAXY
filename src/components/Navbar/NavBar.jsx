@@ -9,29 +9,36 @@ import SettingGalaxy from './SettingGalaxy/SettingGalaxy';
 // import { NavLink } from 'react-router-dom';
 
 
-const NavBar = () => {
+const NavBar = (props) => {
+
   return (
     <BrowserRouter>
       <nav className={s.nav}>
         <div className={`${s.nav__wrapper} ${s.dfex}`}>
           <div className={s.nav__link}>
             <div>
-              <NavLink className = { navData => navData.isActive ? s.active : s.item } to='/profile'>Profile</NavLink>
+              <NavLink className={navData => navData.isActive ? s.active : s.item} to='/profile'>Profile</NavLink>
             </div>
             <div>
-              <NavLink className = { navData => navData.isActive ? s.active : s.item } to='/dialogs'>Message</NavLink>
+              <NavLink className={navData => navData.isActive ? s.active : s.item} to='/dialogs'>Message</NavLink>
             </div><div>
-              <NavLink className = { navData => navData.isActive ? s.active : s.item } to='/news'>News</NavLink>
+              <NavLink className={navData => navData.isActive ? s.active : s.item} to='/news'>News</NavLink>
             </div>
             <div>
-              <NavLink className = { navData => navData.isActive ? s.active : s.item } to='/music'>Music</NavLink>
+              <NavLink className={navData => navData.isActive ? s.active : s.item} to='/music'>Music</NavLink>
             </div>
             <div>
-              <NavLink className = { navData => navData.isActive ? s.active : s.item } to='/settingGalaxy'>Settings Galaxy</NavLink>
+              <NavLink className={navData => navData.isActive ? s.active : s.item} to='/settingGalaxy'>Settings Galaxy</NavLink>
             </div>
           </div>
           <Routes>
+
+
             <Route path="/profile" element={<ProFile />} />
+            {/* <Route path="/profile" element={<ProFile otherProp={myProp} />} />
+            <Route path="/profile" render={()=>  <ProFile />} /> */}
+            {/* <Route path="/profile" element={<ProFile dialogs={dialogs} messages={messages} />} /> */}
+
             <Route path="/dialogs" element={<Dialogs />} />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
@@ -40,6 +47,7 @@ const NavBar = () => {
         </div>
       </nav>
     </BrowserRouter>
+
   )
 }
 
