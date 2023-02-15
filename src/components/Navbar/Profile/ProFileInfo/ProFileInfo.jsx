@@ -2,7 +2,7 @@ import React from 'react';
 import s from './ProFileInfo.module.css';
 import PhotoFace from './mc.png';
 
-const ProFileInfo = () => {
+const ProFileInfo = (props) => {
     return (
         <div className={s.contentImg__card}>
             <div className={`${s.contentImg__card_img} ${s.dflex}`}>

@@ -30,20 +30,40 @@ const MessageItem = (props) => {
 // export default DialogItem;
 
 
-const Dialogs = () => {
+const Dialogs = (props) => {
+
+
+    let dialogData = [
+        { id: 1, name: 'Oleksandr' },
+        { id: 2, name: 'Bohdan' },
+        { id: 3, name: 'Juliya' }
+    ]
+    let dialogElements = dialogData
+        .map(dialog => <DialogItem name={dialog.name} id={dialog.id} />)
+
+
+    let messageData = [
+        { id: 1, message: 'Hi, how are you?' },
+        { id: 2, message: 'Hello, when you will come to me?' },
+        { id: 3, message: 'Hi, what time is it now?' }
+    ]
+    let messageElements = messageData
+        .map(messEle => <MessageItem messageText={messEle.message} />)
+
+
     return (
         <div className={s.contentBlock}>
             <h2>Your dialogs in Galaxy</h2>
             <div className={s.contentBlock__dialogs + " " + s.dflex}>
                 <div className={s.dialogs + ' ' + s.dflex}>
-                    <DialogItem name='OleksandrK' id='1' />
-                    <DialogItem name='Bohdan' id='2' />
-                    <DialogItem name='Juliya' id='3' />
+
+                    {dialogElements}
+
                 </div>
                 <div className={s.messages}>
-                    <MessageItem messageText='Hi, how are you?'/>
-                    <MessageItem messageText='Hello, when you will come to me?'/>
-                    <MessageItem messageText='Hi, what time is it now?'/>
+
+                    {messageElements}
+
                 </div>
             </div>
 
