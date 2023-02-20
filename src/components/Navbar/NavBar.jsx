@@ -11,8 +11,9 @@ import SettingGalaxy from './SettingGalaxy/SettingGalaxy';
 
 const NavBar = (props) => {
 
+  
   return (
-    <BrowserRouter>
+    
       <nav className={s.nav}>
         <div className={`${s.nav__wrapper} ${s.dfex}`}>
           <div className={s.nav__link}>
@@ -32,21 +33,20 @@ const NavBar = (props) => {
             </div>
           </div>
           <Routes>
-
-
-            <Route path="/profile" element={<ProFile />} />
+            
             {/* <Route path="/profile" element={<ProFile otherProp={myProp} />} />
             <Route path="/profile" render={()=>  <ProFile />} /> */}
             {/* <Route path="/profile" element={<ProFile dialogs={dialogs} messages={messages} />} /> */}
 
-            <Route path="/dialogs" element={<Dialogs />} />
+            <Route path="/profile" element={<ProFile myPostData={props.myPostData}/>}/>
+            <Route path="/dialogs/*" element={<Dialogs dialogData={props.dialogData} messageData={props.messageData}/>} />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/settingGalaxy" element={<SettingGalaxy />} />
           </Routes>
         </div>
       </nav>
-    </BrowserRouter>
+    
 
   )
 }

@@ -13,7 +13,6 @@ const DialogItem = (props) => {
             <div>
                 <NavLink className={s.item} to={path}>{props.name}</NavLink>
             </div>
-
         </div>
     )
 }
@@ -21,8 +20,8 @@ const DialogItem = (props) => {
 const MessageItem = (props) => {
     return (
         <div className={s.messagesBlock}>
-            <img src={Icon} />
-            <p className={s.messagesItem}>Hi, how are you?{props.messageText}</p>
+            <img src={Icon} alt="icon" />
+            <p className={s.messagesItem}>{props.messageText}</p>
         </div>
     )
 }
@@ -32,22 +31,25 @@ const MessageItem = (props) => {
 
 const Dialogs = (props) => {
 
+    // {dialogData}, {messageData}
 
-    let dialogData = [
-        { id: 1, name: 'Oleksandr' },
-        { id: 2, name: 'Bohdan' },
-        { id: 3, name: 'Juliya' }
-    ]
-    let dialogElements = dialogData
+
+    // let dialogData = [
+    //     { id: 1, name: 'Oleksandr' },
+    //     { id: 2, name: 'Bohdan' },
+    //     { id: 3, name: 'Juliya' }
+    // ]
+
+    let dialogElements = props.dialogData
         .map(dialog => <DialogItem name={dialog.name} id={dialog.id} />)
 
 
-    let messageData = [
-        { id: 1, message: 'Hi, how are you?' },
-        { id: 2, message: 'Hello, when you will come to me?' },
-        { id: 3, message: 'Hi, what time is it now?' }
-    ]
-    let messageElements = messageData
+    // let messageData = [
+    //     { id: 1, message: 'Hi, how are you?' },
+    //     { id: 2, message: 'Hello, when you will come to me?' },
+    //     { id: 3, message: 'Hi, what time is it now?' }
+    // ]
+    let messageElements = props.messageData
         .map(messEle => <MessageItem messageText={messEle.message} />)
 
 

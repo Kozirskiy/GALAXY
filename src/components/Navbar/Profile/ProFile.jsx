@@ -5,14 +5,20 @@ import Mypost from './Myposts/Mypost';
 import ProFileInfo from './ProFileInfo/ProFileInfo';
 
 
-const ProFile = () => {
+
+
+
+const ProFile = (props) => {
+    
+    
     return (
         <div className={s.contentBlock}>
             <div className={s.contentImg}>
                 <img className={s.headerContent} src={GalaxyPhoto} alt="bg" />
             </div>
             <ProFileInfo />
-            <Mypost />
+            {/* <Route path="/profile" element={<ProFile dialogs={dialogs} messages={messages} />} /> */}
+            <Mypost myPostData={props.myPostData}/>
         </div>
     )
 }
