@@ -26,33 +26,20 @@ const MessageItem = (props) => {
     )
 }
 
-// export default DialogItem;
 
 
 const Dialogs = (props) => {
 
-    // {dialogData}, {messageData}
+    let dialogElements = props.dialogData.map(dialog => <DialogItem name={dialog.name} id={dialog.id} />)
 
+    let messageElements = props.messageData.map(messEle => <MessageItem messageText={messEle.message} />)
 
-    // let dialogData = [
-    //     { id: 1, name: 'Oleksandr' },
-    //     { id: 2, name: 'Bohdan' },
-    //     { id: 3, name: 'Juliya' }
-    // ]
+    let newMessageElement = React.createRef();
 
-    let dialogElements = props.dialogData
-        .map(dialog => <DialogItem name={dialog.name} id={dialog.id} />)
-
-
-    // let messageData = [
-    //     { id: 1, message: 'Hi, how are you?' },
-    //     { id: 2, message: 'Hello, when you will come to me?' },
-    //     { id: 3, message: 'Hi, what time is it now?' }
-    // ]
-    let messageElements = props.messageData
-        .map(messEle => <MessageItem messageText={messEle.message} />)
-
-
+    let onPostChange = () => {
+        let text = newMessageElement.current.value;
+        props.updateNewMessage(text);
+    };
     return (
         <div className={s.contentBlock}>
             <h2>Your dialogs in Galaxy</h2>
@@ -60,14 +47,31 @@ const Dialogs = (props) => {
                 <div className={s.dialogs + ' ' + s.dflex}>
 
                     {dialogElements}
-
+                    
                 </div>
                 <div className={s.messages}>
 
                     {messageElements}
 
+                    <div className={s.contentBlock__textarea_button + " " + s.dflex}>
+                        <textarea onChange={onPostChange} value={props.newMessageDialogs} ref={newMessageElement}>
+
+                        </textarea>
+
+                        <button onClick={props.addNewMessage}>
+                            Send 
+                            <span>
+                                &#8594;
+                            </span> 
+                        </button>
+                    </div>
                 </div>
             </div>
+            {/* <div className={s.contentBlock__textarea_button + " " + s.dflex}>
+                <textarea placeholder='your news...' >
+
+                </textarea>
+            </div> */}
 
         </div>
     );

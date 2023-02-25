@@ -1,10 +1,11 @@
-  .myPost input {
+  .myPost textarea {
     height: 50px;
     width: 100%;
     border: none;
     background-color: rgb(235, 235, 235);
-    border-radius: 5px;
-    padding: 3px;
+    border-radius: 3px;
+    padding: 1px;
+    box-shadow: 0px 2px 4px rgb(74, 231, 158);
   }
   .myPost {
     display: flex;
@@ -19,8 +20,9 @@
     display: flex;
     justify-content: flex-end;
   }
-  input {
+  textarea {
     outline:none;
+    border: 1px solid red;
 } 
   .myPost button {
     border: none;
