@@ -4,9 +4,10 @@
     border: none;
     background-color: rgb(235, 235, 235);
     border-radius: 3px;
-    padding: 1px;
     box-shadow: 0px 2px 4px rgb(74, 231, 158);
+    color:rgb(95, 95, 95);
   }
+  
   .myPost {
     display: flex;
     flex-direction: column;

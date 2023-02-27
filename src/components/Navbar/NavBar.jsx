@@ -6,7 +6,6 @@ import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import News from './News/News';
 import Music from './Music/Music';
 import SettingGalaxy from './SettingGalaxy/SettingGalaxy';
-// import { NavLink } from 'react-router-dom';
 
 
 const NavBar = (props) => {
@@ -35,26 +34,38 @@ const NavBar = (props) => {
             </div>
           <Routes>
 
-            {/* <Route path="/profile" element={<ProFile otherProp={myProp} />} />
-            <Route path="/profile" render={()=>  <ProFile />} /> */}
-            {/* <Route path="/profile" element={<ProFile dialogs={dialogs} messages={messages} />} /> */}
+            <Route path="/profile" element={<ProFile
 
-            <Route path="/profile" element={<ProFile 
-              updateNewPostText={props.updateNewPostText} 
-              newPostText={props.newPostText} 
-              myPostData={props.myPostData} 
-              addPost={props.addPost} />} />
+                                            state={props.store}
+                                            
+                                            newPostText={props.store} 
+                                            updateNewPostText={props.store} 
+                                            myPostData={props.store} 
+
+                                            addPost={props.store} 
+
+
+
+
+                                            // updateNewPostText={props.updateNewPostText} 
+                                            // newPostText={props.newPostText} 
+                                            // myPostData={props.myPostData} 
+                                            // addPost={props.addPost} 
+                                            />} 
+                                            />
 
             <Route path="/dialogs/*" element={<Dialogs 
-              updateNewMessage={props.updateNewMessage} 
-              addNewMessage={props.addNewMessage} 
-              addPost={props.addPost} 
-              newMessageDialogs={props.newMessageDialogs} 
-              dialogData={props.dialogData} 
-              messageData={props.messageData} />} />
+                                              updateNewMessage={props.updateNewMessage} 
+                                              addNewMessage={props.addNewMessage} 
+                                              addPost={props.addPost} 
+                                              newMessageDialogs={props.newMessageDialogs} 
+                                              dialogData={props.dialogData} 
+                                              messageData={props.messageData}/>} 
+                                              />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
             <Route path="/settingGalaxy" element={<SettingGalaxy />} />
+
           </Routes>
         </div>
       </nav>
