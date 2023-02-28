@@ -12,16 +12,21 @@ const App = (props) => {
       <div className='app-wrapper'>
           <div className='container'>
             <Header />
-            <NavBar addNewMessage={props.addNewMessage} 
-                    newMessageDialogs={props.appState.newMessageDialogs} 
-                    updateNewPostText={props.updateNewPostText} 
-                    updateNewMessage={props.updateNewMessage} 
+            <NavBar 
+                    dispatch={props.dispatch}
+
+                    addNewMessage={props.appState.addNewMessage} 
+                    updateNewMessage={props.appState.updateNewMessage} 
                     newPostText={props.appState.newPostText} 
+                    updateNewPostText={props.appState.updateNewPostText}
+
+
                     myPostData={props.appState.myPostData} 
+                    
+                    newMessageDialogs={props.appState.newMessageDialogs}
                     dialogData={props.appState.dialogData} 
-                    messageData={props.appState.messageData} 
-                    addPost={props.addPost}
-            />  
+                    messageData={props.appState.messageData}      
+            /> 
           </div>
       </div>
      )

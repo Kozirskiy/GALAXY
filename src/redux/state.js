@@ -7,7 +7,7 @@ let store = {
             { id: 3, message: "Third post", iconLike: 23 }
         ],
     
-        newPostText: 'write your new post here',
+        newPostText: 'Write new post',
     
         dialogData: [
             { id: 1, name: 'Oleksandr' },
@@ -23,50 +23,95 @@ let store = {
     
         newMessageDialogs: 'write here'
     },
-    getState () {
-        return this._state;
-    },
     _callSubscriber () {
         console.log('State chnged');
     },
-    
-    addPost () {
-        let newPost = {
-            id: 4,
-            message: this._state.newPostText,
-            iconLike: 0
-        }; 
-        this._state.myPostData.push(newPost);
-        this._state.newPostText = '';
-        this._callSubscriber(this._state);
-    },
+    // ____________________
 
-    updateNewPostText (newText) {
-        this._state.newPostText = newText;
-        this._callSubscriber(this._state);
+    getState () {
+        return this._state;
     },
-
-    addNewMessage () {
-        let newMessage = {
-            id: 4,
-            message: this._state.newMessageDialogs,
-        }; 
-        this._state.messageData.push(newMessage);
-        this._state.newMessageDialogs = '';
-        this._callSubscriber(this._state);
-    },
-
-    updateNewMessage (newMessageItem) {
-        this._state.newMessageDialogs = newMessageItem;
-        this._callSubscriber(this._state);
-    },
-
     subscribe (observer) {
         this._callSubscriber = observer;
     },
+    // ____________________
+
+    // addPost () {
+    //     let newPost = {
+    //         id: 4,
+    //         message: this._state.newPostText,
+    //         iconLike: 0
+    //     }; 
+    //     if (this._state.newPostText !== '') {
+    //         this._state.myPostData.push(newPost);
+    //         this._state.newPostText = '';
+    //         this._callSubscriber(this._state);
+    //     }
+    // },
+    // updateNewPostText (newText) {
+    //     this._state.newPostText = newText;
+    //     this._callSubscriber(this._state);
+    // },
+    // ____________________
+
+    // addNewMessage () {
+    //     let newMessage = {
+    //         id: 4,
+    //         message: this._state.newMessageDialogs,
+    //     }; 
+    //     if ( this._state.newMessageDialogs !== '') {
+    //         this._state.messageData.push(newMessage);
+    //         this._state.newMessageDialogs = '';
+    //         this._callSubscriber(this._state);
+    //     }
+        
+    // },
+
+    // updateNewMessage (newMessageItem) {
+    //     this._state.newMessageDialogs = newMessageItem;
+    //     this._callSubscriber(this._state);
+    // },
+
+    dispatch (action) { //{ type: 'ADD-POST'}
+        if (action.type === 'ADD-POST') {
+            let newPost = {
+                id: 4,
+                message: this._state.newPostText,
+                iconLike: 0
+            }; 
+            if (this._state.newPostText !== '') {
+                this._state.myPostData.push(newPost);
+                this._state.newPostText = '';
+                this._callSubscriber(this._state);
+            }
+        } 
+        
+        else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+            this._state.newPostText = action.newText;
+            this._callSubscriber(this._state);
+        } 
+        
+        else if (action.type === 'ADD-NEW-MESSAGE') {
+            let newMessage = {
+                id: 4,
+                message: this._state.newMessageDialogs,
+            }; 
+            if ( this._state.newMessageDialogs !== '') {
+                this._state.messageData.push(newMessage);
+                this._state.newMessageDialogs = '';
+                this._callSubscriber(this._state);
+            }
+        } 
+
+        else if (action.type === 'UPDATE-NEW-MESSAGE') {
+            this._state.newMessageDialogs = action.newMessageItem;
+            this._callSubscriber(this._state);
+        }
+    }
 
 };
 
 
 export default store;
+
 window.store =store;

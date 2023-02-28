@@ -12,12 +12,16 @@ let rerenderEntireTree = (state) => {
 
     root.render(
       <React.StrictMode>
-        <App  appState={state} 
-        addPost={store.addPost.bind(store)} 
-        addNewMessage={store.addNewMessage.bind(store)} 
-        updateNewPostText={store.updateNewPostText.bind(store)} 
-        updateNewMessage={store.updateNewMessage.bind(store)}/>
-      </React.StrictMode>
+        <App  
+        appState={state}
+        dispatch={store.dispatch.bind(store)}
+        
+        // updateNewPostText={store.updateNewPostText.bind(store)} 
+        
+        // addNewMessage={store.addNewMessage.bind(store)} 
+        // updateNewMessage={store.updateNewMessage.bind(store)}
+        />
+      </React.StrictMode >
     );
   }
 

@@ -11,7 +11,9 @@ const DialogItem = (props) => {
     return (
         <div className={s.dialogs + ' ' + s.dflex}>
             <div>
+
                 <NavLink className={s.item} to={path}>{props.name}</NavLink>
+                
             </div>
         </div>
     )
@@ -28,6 +30,7 @@ const MessageItem = (props) => {
 
 
 
+
 const Dialogs = (props) => {
 
     let dialogElements = props.dialogData.map(dialog => <DialogItem name={dialog.name} id={dialog.id} />)
@@ -38,8 +41,12 @@ const Dialogs = (props) => {
 
     let onPostChange = () => {
         let text = newMessageElement.current.value;
-        props.updateNewMessage(text);
+        props.dispatch({type: 'UPDATE-NEW-MESSAGE', newText: text})
     };
+
+    let addMessageFromButton = () => {
+        props.dispatch({type: 'ADD-NEW-MESSAGE'})
+    }
     return (
         <div className={s.contentBlock}>
             <h2>Your dialogs in Galaxy</h2>
@@ -54,11 +61,11 @@ const Dialogs = (props) => {
                     {messageElements}
 
                     <div className={s.contentBlock__textarea_button + " " + s.dflex}>
-                        <textarea onChange={onPostChange} value={props.newMessageDialogs} ref={newMessageElement}>
+                        <textarea onChange={onPostChange} type="text" value={props.newMessageDialogs} ref={newMessageElement}>
 
                         </textarea>
 
-                        <button onClick={props.addNewMessage}>
+                        <button onClick={ addMessageFromButton } >
                             Send 
                             <span>
                                 &#8594;
