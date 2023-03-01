@@ -15,10 +15,11 @@ const App = (props) => {
             <NavBar 
                     dispatch={props.dispatch}
 
+                    newPostText={props.appState.newPostText} 
+                    updateNewPostText={props.appState.nupdateNewPostText}
+
                     addNewMessage={props.appState.addNewMessage} 
                     updateNewMessage={props.appState.updateNewMessage} 
-                    newPostText={props.appState.newPostText} 
-                    updateNewPostText={props.appState.updateNewPostText}
 
 
                     myPostData={props.appState.myPostData} 

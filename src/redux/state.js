@@ -1,3 +1,8 @@
+const ADD_POST = 'ADD-POST';
+const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE';
+const UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE';
+
 let store = {
     _state : {
 
@@ -73,7 +78,7 @@ let store = {
     // },
 
     dispatch (action) { //{ type: 'ADD-POST'}
-        if (action.type === 'ADD-POST') {
+        if (action.type === ADD_POST) {
             let newPost = {
                 id: 4,
                 message: this._state.newPostText,
@@ -86,12 +91,12 @@ let store = {
             }
         } 
         
-        else if (action.type === 'UPDATE-NEW-POST-TEXT') {
+        else if (action.type === UPDATE_NEW_POST_TEXT) {
             this._state.newPostText = action.newText;
             this._callSubscriber(this._state);
         } 
         
-        else if (action.type === 'ADD-NEW-MESSAGE') {
+        else if (action.type === ADD_NEW_MESSAGE) {
             let newMessage = {
                 id: 4,
                 message: this._state.newMessageDialogs,
@@ -103,14 +108,28 @@ let store = {
             }
         } 
 
-        else if (action.type === 'UPDATE-NEW-MESSAGE') {
+        else if (action.type === UPDATE_NEW_MESSAGE) {
             this._state.newMessageDialogs = action.newMessageItem;
             this._callSubscriber(this._state);
         }
-    }
-
+    }  
 };
 
+export const addPostActionCreator = () => ({type: ADD_POST});
+
+//or another way or simple 
+
+export  const updateNewPostActionCreator = (text) => 
+    ({ type: UPDATE_NEW_POST_TEXT, newText: text });
+
+export const addNewMesageActionCreator = () => {
+        return {type: ADD_NEW_MESSAGE};
+    };
+
+export const onMessageActionCreator = (text) => {
+        return { type: UPDATE_NEW_MESSAGE,
+                 newMessageItem: text};
+    }
 
 export default store;
 

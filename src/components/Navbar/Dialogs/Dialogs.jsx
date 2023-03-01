@@ -2,6 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './Dialogs.module.css';
 import Icon from '../Profile/Myposts/Post/iconForPost.png';
+import { addNewMesageActionCreator, onMessageActionCreator } from '../../../redux/state';
 
 
 const DialogItem = (props) => {
@@ -31,6 +32,8 @@ const MessageItem = (props) => {
 
 
 
+
+
 const Dialogs = (props) => {
 
     let dialogElements = props.dialogData.map(dialog => <DialogItem name={dialog.name} id={dialog.id} />)
@@ -39,14 +42,16 @@ const Dialogs = (props) => {
 
     let newMessageElement = React.createRef();
 
-    let onPostChange = () => {
-        let text = newMessageElement.current.value;
-        props.dispatch({type: 'UPDATE-NEW-MESSAGE', newText: text})
+    let addMessageFromButton = () => {
+        props.dispatch(addNewMesageActionCreator())
     };
 
-    let addMessageFromButton = () => {
-        props.dispatch({type: 'ADD-NEW-MESSAGE'})
-    }
+    let onMessage = () => {
+        let text = newMessageElement.current.value;
+        props.dispatch(onMessageActionCreator(text))
+    };
+
+    
     return (
         <div className={s.contentBlock}>
             <h2>Your dialogs in Galaxy</h2>
@@ -61,7 +66,7 @@ const Dialogs = (props) => {
                     {messageElements}
 
                     <div className={s.contentBlock__textarea_button + " " + s.dflex}>
-                        <textarea onChange={onPostChange} type="text" value={props.newMessageDialogs} ref={newMessageElement}>
+                        <textarea onChange={onMessage} type="text" value={props.newMessageDialogs} ref={newMessageElement} placeholder='write here'>
 
                         </textarea>
 
