@@ -1,7 +1,10 @@
-const ADD_POST = 'ADD-POST';
-const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
-const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE';
-const UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE';
+import messageREDUCER from "./messageREDUCER";
+import postREDUCER from "./postREDUCER";
+
+// const ADD_POST = 'ADD-POST';
+// const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
+// const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE';
+// const UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE';
 
 let store = {
     _state : {
@@ -77,59 +80,66 @@ let store = {
     //     this._callSubscriber(this._state);
     // },
 
-    dispatch (action) { //{ type: 'ADD-POST'}
-        if (action.type === ADD_POST) {
-            let newPost = {
-                id: 4,
-                message: this._state.newPostText,
-                iconLike: 0
-            }; 
-            if (this._state.newPostText !== '') {
-                this._state.myPostData.push(newPost);
-                this._state.newPostText = '';
-                this._callSubscriber(this._state);
-            }
-        } 
-        
-        else if (action.type === UPDATE_NEW_POST_TEXT) {
-            this._state.newPostText = action.newText;
-            this._callSubscriber(this._state);
-        } 
-        
-        else if (action.type === ADD_NEW_MESSAGE) {
-            let newMessage = {
-                id: 4,
-                message: this._state.newMessageDialogs,
-            }; 
-            if ( this._state.newMessageDialogs !== '') {
-                this._state.messageData.push(newMessage);
-                this._state.newMessageDialogs = '';
-                this._callSubscriber(this._state);
-            }
-        } 
+    dispatch (action) { 
 
-        else if (action.type === UPDATE_NEW_MESSAGE) {
-            this._state.newMessageDialogs = action.newMessageItem;
-            this._callSubscriber(this._state);
-        }
+       this._state =  postREDUCER(this._state, action);
+       this._state =  messageREDUCER(this._state, action);
+
+       this._callSubscriber(this._state);
+
+
+        // if (action.type === ADD_POST) {
+        //     let newPost = {
+        //         id: 4,
+        //         message: this._state.newPostText,
+        //         iconLike: 0
+        //     }; 
+        //     if (this._state.newPostText !== '') {
+        //         this._state.myPostData.push(newPost);
+        //         this._state.newPostText = '';
+        //         this._callSubscriber(this._state);
+        //     }
+        // } 
+        
+        // else if (action.type === UPDATE_NEW_POST_TEXT) {
+        //     this._state.newPostText = action.newText;
+        //     this._callSubscriber(this._state);
+        // } 
+        
+        // else if (action.type === ADD_NEW_MESSAGE) {
+        //     let newMessage = {
+        //         id: 4,
+        //         message: this._state.newMessageDialogs,
+        //     }; 
+        //     if ( this._state.newMessageDialogs !== '') {
+        //         this._state.messageData.push(newMessage);
+        //         this._state.newMessageDialogs = '';
+        //         this._callSubscriber(this._state);
+        //     }
+        // } 
+
+        // else if (action.type === UPDATE_NEW_MESSAGE) {
+        //     this._state.newMessageDialogs = action.newMessageItem;
+        //     this._callSubscriber(this._state);
+        // }
     }  
 };
 
-export const addPostActionCreator = () => ({type: ADD_POST});
+// export const addPostActionCreator = () => ({type: ADD_POST});
 
-//or another way or simple 
+// //or another way or simple 
 
-export  const updateNewPostActionCreator = (text) => 
-    ({ type: UPDATE_NEW_POST_TEXT, newText: text });
+// export  const updateNewPostActionCreator = (text) => 
+//     ({ type: UPDATE_NEW_POST_TEXT, newText: text });
 
-export const addNewMesageActionCreator = () => {
-        return {type: ADD_NEW_MESSAGE};
-    };
+// export const addNewMesageActionCreator = () => {
+//         return {type: ADD_NEW_MESSAGE};
+//     };
 
-export const onMessageActionCreator = (text) => {
-        return { type: UPDATE_NEW_MESSAGE,
-                 newMessageItem: text};
-    }
+// export const onMessageActionCreator = (text) => {
+//         return { type: UPDATE_NEW_MESSAGE,
+//                  newMessageItem: text};
+//     }
 
 export default store;
 

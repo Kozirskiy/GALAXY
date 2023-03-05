@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './Dialogs.module.css';
 import Icon from '../Profile/Myposts/Post/iconForPost.png';
-import { addNewMesageActionCreator, onMessageActionCreator } from '../../../redux/state';
+import { addNewMesageActionCreator, onMessageActionCreator } from '../../../redux/messageREDUCER';
 
 
 const DialogItem = (props) => {
