@@ -8,8 +8,36 @@ import Post from './Post/Post';
 
 const Mypost = (props) => {
 
-    let myPostElem = props.myPostData.map( postE  => <Post message={postE.message} iconLike={postE.iconLike} /> );
+   let myPostElem = props.myPostData.map( postE  => <Post message={postE.message} iconLike={postE.iconLike} /> );
 
+
+    // let myPostElem = props.myPostData;
+    // if (!myPostElem) {
+    //     return null;
+    // }  
+    // return (
+    //     <React.Fragment>
+    //         {myPostElem.map( postE  => <Post message={postE.message} iconLike={postE.iconLike} /> )}
+    //     </React.Fragment>
+    // )
+
+    
+
+
+
+
+
+    // Using an if check
+// if (!posts) {
+//     return null
+// }
+
+// // Here post will not be undefined anymore
+// return (
+//     <React.Fragment>
+//         {posts.map(post => <Card details={post} />)}
+//     </React.Fragment>
+// )
     let newPostElement = React.createRef();
 
     let addPost = () => {
