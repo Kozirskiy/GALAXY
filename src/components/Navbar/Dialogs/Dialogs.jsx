@@ -35,20 +35,22 @@ const MessageItem = (props) => {
 
 
 const Dialogs = (props) => {
+    
+    let state = props.store.getState().dialogData;
 
-    let dialogElements = props.dialogData.map(dialog => <DialogItem name={dialog.name} id={dialog.id} />)
+    let dialogElements = state.dialogData?.map(dialogE => <DialogItem name={dialogE.name} id={dialogE.id} />)
 
-    let messageElements = props.messageData.map(messEle => <MessageItem messageText={messEle.message} />)
+    let messageElements = state.messageData.map(messEle => <MessageItem messageText={messEle.message} />)
 
     let newMessageElement = React.createRef();
 
     let addMessageFromButton = () => {
-        props.dispatch(addNewMesageActionCreator())
+        props.store.dispatch(addNewMesageActionCreator())
     };
 
-    let onMessage = () => {
-        let text = newMessageElement.current.value;
-        props.dispatch(onMessageActionCreator(text))
+    let onMessage = (e) => {
+        let text = e.target.value;
+        props.store.dispatch(onMessageActionCreator(text))
     };
 
     

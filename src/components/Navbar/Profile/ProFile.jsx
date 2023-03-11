@@ -19,12 +19,15 @@ const ProFile = (props) => {
             <ProFileInfo />
             {/* <Route path="/profile" element={<ProFile dialogs={dialogs} messages={messages} />} /> */}
             <Mypost 
-                   dispatch={props.dispatch}
-                // updateNewPostText={props.updateNewPostText} 
+
+
+                dispatch={props.dispatch}
+                updateNewPostText={props.updateNewPostText} 
+                store = {props.store}
 
                 newPostText={props.newPostText} 
                 myPostData={props.myPostData} 
-
+                
                 
             />
         </div>

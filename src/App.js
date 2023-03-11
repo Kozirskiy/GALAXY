@@ -15,18 +15,19 @@ const App = (props) => {
             <NavBar 
                     dispatch={props.dispatch}
 
+                    addPost={props.addPost} 
+                    myPostData={props.appState.myPostData} 
+
                     newPostText={props.appState.newPostText} 
                     updateNewPostText={props.appState.nupdateNewPostText}
 
                     addNewMessage={props.appState.addNewMessage} 
-                    updateNewMessage={props.appState.updateNewMessage} 
-
-
-                    myPostData={props.appState.myPostData} 
-                    
                     newMessageDialogs={props.appState.newMessageDialogs}
+                    updateNewMessage={props.appState.updateNewMessage} 
+        
                     dialogData={props.appState.dialogData} 
-                    messageData={props.appState.messageData}      
+                    messageData={props.appState.messageData}
+                    store = {props.store}      
             /> 
           </div>
       </div>

@@ -38,14 +38,20 @@ const NavBar = (props) => {
 
             <Route path="/profile" element={ <ProFile 
                   dispatch={props.dispatch} 
-              // updateNewPostText={props.updateNewPostText} 
+                  updateNewPostText={props.updateNewPostText} 
                   newPostText={props.newPostText} 
-                  myPostData={props.myPostData} 
+                  myPostData={props.myPostData}
+
+                  store = {props.store} 
+
+                  addPost={props.addPost} 
               />} />
               
             <Route path="/dialogs/*" element={<Dialogs 
+                  store = {props.store} 
+
                   dispatch={props.dispatch}
-                  // addPost={props.addPost} 
+                  addPost={props.addPost} 
 
                   addNewMessage={props.addNewMessage}
                   updateNewMessage={props.updateNewMessage} 
