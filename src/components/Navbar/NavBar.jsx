@@ -1,11 +1,12 @@
 import React from 'react';
 import ProFile from './Profile/ProFile';
 import s from './Navbar.module.css';
-import Dialogs from './Dialogs/Dialogs';
+// import Dialogs from './Dialogs/Dialogs';
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import News from './News/News';
 import Music from './Music/Music';
 import SettingGalaxy from './SettingGalaxy/SettingGalaxy';
+import DialogsContainer from './Dialogs/DialogsContainer';
 // import { NavLink } from 'react-router-dom';
 
 
@@ -35,30 +36,37 @@ const NavBar = (props) => {
             </div>
 
           <Routes>
+            <Route path="/profile" element={ 
+            <ProFile 
+                    //  store = {props.store} 
+                    //  state = {props.state}
 
-            <Route path="/profile" element={ <ProFile 
-                  dispatch={props.dispatch} 
-                  updateNewPostText={props.updateNewPostText} 
-                  newPostText={props.newPostText} 
-                  myPostData={props.myPostData}
 
-                  store = {props.store} 
 
-                  addPost={props.addPost} 
+
+
+
+                    //  myPostData={props.appState.myPostData}
+                  // dispatch={props.dispatch} 
+                  // updateNewPostText={props.updateNewPostText} 
+                  // newPostText={props.newPostText} 
+                                    
+                  // addPost={props.addPost} 
               />} />
               
-            <Route path="/dialogs/*" element={<Dialogs 
-                  store = {props.store} 
+            <Route path="/dialogs/*" element={
+                  <DialogsContainer
+                    // store = {props.store} 
 
-                  dispatch={props.dispatch}
-                  addPost={props.addPost} 
+                  // dispatch={props.dispatch}
+                  // addPost={props.addPost} 
 
-                  addNewMessage={props.addNewMessage}
-                  updateNewMessage={props.updateNewMessage} 
+                  // addNewMessage={props.addNewMessage}
+                  // updateNewMessage={props.updateNewMessage} 
 
-                  dialogData={props.dialogData} 
-                  newMessageDialogs={props.newMessageDialogs} 
-                  messageData={props.messageData} 
+                  // dialogData={props.dialogData} 
+                  // newMessageDialogs={props.newMessageDialogs} 
+                  // messageData={props.messageData} 
               />} />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />

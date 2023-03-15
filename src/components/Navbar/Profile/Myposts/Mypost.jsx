@@ -1,21 +1,15 @@
 import React from 'react';
-import { addPostActionCreator, updateNewPostActionCreator } from '../../../../redux/postREDUCER';
-// import store from '../../../../redux/redux-store';
-// import IconForPost from './iconForPost.png';
 import s from './Mypost.module.css';
 import Post from './Post/Post';
-//import { initialState } from './../../../../redux/postREDUCER';
+
 
 
 
 const Mypost = (props) => {
 
-     let myPostElem = props.myPostData && props.myPostData.map((elem) => {
-       return  <Post message={elem.message} iconLike={elem.iconLike} />;
-     });
+    //  let state = props.myPostData;
 
-    //  let myPostElem = props.store.state.myPostData
-    //  ?.map( elem=>  <Post message={elem.message} iconLike={elem.iconLike} />);
+     let myPostElem = props.myPostData?.map(elem=> <Post message={elem.message} iconLike={elem.iconLike}/>);
 
      //state.userReducer.users
 
@@ -37,21 +31,14 @@ const Mypost = (props) => {
 
     let newPostElement = React.createRef();
 
-    let addPost = () => {
-        props.dispatch(addPostActionCreator());
-        
-        //or let action = {type: 'ADD-POST'}
-        //props.dispatch(action);
+    let onAddPost = () => {
+        props.addPost();
     };
 
-    let onPostChange = () => {
-        let text = newPostElement.current.value;
-        // props.dispatch({type: 'UPDATE-NEW-POST-TEXT', newText: text});
-        let action = updateNewPostActionCreator(text);
-        props.dispatch(action);
-        // or
-        // let action = {type: 'UPDATE-NEW-POST-TEXT', newText: text};
-        // props.dispatch(action);
+    let onPostChange = (e) => {
+        let text = e.target.value;
+        props.updateNewPostText(text);
+        
     };
 
     return (
@@ -60,9 +47,11 @@ const Mypost = (props) => {
                 My Posts
             </h2>
             {/* <input className='' type="text" ref={newPostElement} placeholder='your news...' /> */}
+
             <textarea onChange={onPostChange} className='' type="text" ref={newPostElement}  value={props.newPostText} placeholder='write here new text'/>
+
             <div className={s.btnClass}>
-                <button onClick={addPost}>Add post</button>
+                <button onClick={onAddPost}>Add post</button>
             </div>
             {myPostElem}
         </div>

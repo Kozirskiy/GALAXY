@@ -9,6 +9,8 @@ let reducers = combineReducers({
     messagePAGE: messageREDUCER
 });
 
+let store = legacy_createStore(reducers);
+
 // const rootReducer = combineReducers({
 //     profileReducer: profileReducer,
 //     messagesReducer: messagesReducer,
@@ -19,14 +21,12 @@ let reducers = combineReducers({
 //     messageREDUCER: messageREDUCER,
 //   });
 
-let store = legacy_createStore(reducers);
+
+
 // export const store = configureStore({
 //     reducer: rootReducer
 //   });
 
 // let store = createStore(reducers);
-
-
-
 
 export default store;

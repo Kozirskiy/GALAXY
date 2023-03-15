@@ -2,7 +2,7 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 import s from './Dialogs.module.css';
 import Icon from '../Profile/Myposts/Post/iconForPost.png';
-import { addNewMesageActionCreator, onMessageActionCreator } from '../../../redux/messageREDUCER';
+// import { addNewMesageActionCreator, onMessageActionCreator } from '../../../redux/messageREDUCER';
 
 
 const DialogItem = (props) => {
@@ -30,27 +30,23 @@ const MessageItem = (props) => {
 }
 
 
-
-
-
-
 const Dialogs = (props) => {
     
-    let state = props.store.getState().dialogData;
+    // let state = props.dialogData;
 
-    let dialogElements = state.dialogData?.map(dialogE => <DialogItem name={dialogE.name} id={dialogE.id} />)
+    let dialogElements = props.dialogData?.map(dialogE => <DialogItem name={dialogE.name} id={dialogE.id} />)
 
-    let messageElements = state.messageData.map(messEle => <MessageItem messageText={messEle.message} />)
+    let messageElements = props.messageData?.map(messEle => <MessageItem messageText={messEle.message} />)
 
     let newMessageElement = React.createRef();
 
     let addMessageFromButton = () => {
-        props.store.dispatch(addNewMesageActionCreator())
+        props.addMessageBody();
     };
 
     let onMessage = (e) => {
         let text = e.target.value;
-        props.store.dispatch(onMessageActionCreator(text))
+        props.newMessageItemBody(text)
     };
 
     
@@ -68,6 +64,7 @@ const Dialogs = (props) => {
                     {messageElements}
 
                     <div className={s.contentBlock__textarea_button + " " + s.dflex}>
+
                         <textarea onChange={onMessage} type="text" value={props.newMessageDialogs} ref={newMessageElement} placeholder='write here'>
 
                         </textarea>
@@ -81,12 +78,6 @@ const Dialogs = (props) => {
                     </div>
                 </div>
             </div>
-            {/* <div className={s.contentBlock__textarea_button + " " + s.dflex}>
-                <textarea placeholder='your news...' >
-
-                </textarea>
-            </div> */}
-
         </div>
     );
 }

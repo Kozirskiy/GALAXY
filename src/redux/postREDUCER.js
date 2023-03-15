@@ -1,7 +1,7 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
- let initialState= {
+ let initialStatePost = {
     myPostData: [
         { id: 1, message: "First post", iconLike: 12 },
         { id: 2, message: "Second post", iconLike: 15 },
@@ -10,7 +10,7 @@ const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
     newPostText: 'Write new post'
 };
-const postREDUCER = (state = initialState, action) => {
+const postREDUCER = (state = initialStatePost, action) => {
 
     switch(action.type) {
         case ADD_POST: 
@@ -52,6 +52,7 @@ const postREDUCER = (state = initialState, action) => {
 
     // return state;
 };
+
 export const addPostActionCreator = () => ({type: ADD_POST});
 
 //or another way or simple 
