@@ -46,7 +46,7 @@ const DialogsContainer = () => {
     return (
         <StoreContext.Consumer> 
             { (store) => {
-                let state = store.getState().dialogData;
+                // let state = store.getState().dialogData;
 
                 let addMessageFromButton = () => {
                     store.dispatch(addNewMesageActionCreator())
@@ -58,7 +58,7 @@ const DialogsContainer = () => {
 
                 
                 return <Dialogs
-                            dialogData={state}
+                            dialogData={store.getState().dialogData}
                             newMessageItemBody={onMessage}
                             addMessageBody={addMessageFromButton}
                             

@@ -9,9 +9,8 @@ const Mypost = (props) => {
 
     //  let state = props.myPostData;
 
-     let myPostElem = props.myPostData?.map(elem=> <Post message={elem.message} iconLike={elem.iconLike}/>);
-
-     //state.userReducer.users
+     let myPostElem = props.myPostData?.map((elem)=> {
+           return <Post message={elem.message} iconLike={elem.iconLike}/>});
 
     // let myPostElem = props.myPostData.map((e) => {
     //    return <Post message={e.message} iconLike={e.iconLike} />;
