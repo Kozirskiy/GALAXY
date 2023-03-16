@@ -2,17 +2,28 @@
 const ADD_POST = 'ADD-POST';
 const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 
+<<<<<<< HEAD
  let initialStatePost = {
+=======
+let  initialState = {
+>>>>>>> 01be926b052ece0e1b1eecc6fd754c5da3254e43
     myPostData: [
         { id: 1, message: "First post", iconLike: 12 },
         { id: 2, message: "Second post", iconLike: 15 },
         { id: 3, message: "Third post", iconLike: 23 }
     ],
+<<<<<<< HEAD
 
     newPostText: 'Write new post'
 };
 const postREDUCER = (state = initialStatePost, action) => {
+=======
+>>>>>>> 01be926b052ece0e1b1eecc6fd754c5da3254e43
 
+    newPostText: 'Write new post',
+};
+
+const postREDUCER = (state = initialState, action) => {
     switch(action.type) {
         case ADD_POST: 
             let newPost = {

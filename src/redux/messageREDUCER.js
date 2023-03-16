@@ -1,7 +1,12 @@
 const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE';
 const UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE';
 
+<<<<<<< HEAD
 let initialState = {
+=======
+
+let  initialStateMess = {
+>>>>>>> 01be926b052ece0e1b1eecc6fd754c5da3254e43
     dialogData: [
         { id: 1, name: 'Oleksandr' },
         { id: 2, name: 'Bohdan' },
@@ -17,7 +22,11 @@ let initialState = {
     newMessageDialogs: 'write here'
 };
 
+<<<<<<< HEAD
 const messageREDUCER = (state = initialState, action) => {
+=======
+const messageREDUCER = (state = initialStateMess, action) => {
+>>>>>>> 01be926b052ece0e1b1eecc6fd754c5da3254e43
 
     switch (action.type)  {
         case ADD_NEW_MESSAGE:
