@@ -1,7 +1,12 @@
-import React from 'react';
+// import React from 'react';
 import { addNewMesageActionCreator, onMessageActionCreator } from '../../../redux/messageREDUCER';
 import Dialogs from './Dialogs';
-import StoreContext from '../../../storeContext';
+import { connect } from 'react-redux';
+
+
+// import StoreContext from '../../../storeContext';
+//import Provider from 'react-redux';
+
 
 
 // const DialogItem = (props) => {
@@ -32,40 +37,54 @@ import StoreContext from '../../../storeContext';
 //     )
 // }
 
-const DialogsContainer = () => {
-    // let state = props.store.getState().dialogData;
+// const DialogsContainer = () => {
 
-    // let addMessageFromButton = () => {
-    //     props.store.dispatch(addNewMesageActionCreator())
-    // };
+//     return (
+//         <StoreContext.Consumer> 
+//             {(store) => {
+//                 let state = store.getState().messagePAGE;
 
-    // let onMessage = (text) => {
-    //     props.store.dispatch(onMessageActionCreator(text))
-    // };
-
-    return (
-        <StoreContext.Consumer> 
-            { (store) => {
-                // let state = store.getState().dialogData;
-
-                let addMessageFromButton = () => {
-                    store.dispatch(addNewMesageActionCreator())
-                };
+//                 let addMessageFromButtonClick = () => {
+//                     store.dispatch(addNewMesageActionCreator())
+//                 };
             
-                let onMessage = (text) => {
-                    store.dispatch(onMessageActionCreator(text))
-                };
-
+//                 let onMessageChange = (text) => {
+//                     store.dispatch(onMessageActionCreator(text))
+//                 };                
+//                 return <Dialogs
                 
-                return <Dialogs
-                            dialogData={store.getState().dialogData}
-                            newMessageItemBody={onMessage}
-                            addMessageBody={addMessageFromButton}
+//                                 newMessageDialogs= {addMessageFromButtonClick}
+//                                 onMessage={onMessageChange}
+
+//                                 messagePAGE={state}
+//                                 //or
+//                                // dialogData={state.messagePAGE.dialogData}
+                                
+//                                 //messageData={state.messagePAGE.messageData}
                             
-            /> } }
+//             /> } }
             
-        </StoreContext.Consumer>
-    )
-}
+//         </StoreContext.Consumer>
+//     )
+// }
+
+let mapStateToProps = (state) => {
+    return {
+        messagePAGE: state.messagePAGE
+    };
+};
+
+let mapDispatchToProps = (dispatch) => { 
+    return {
+        onMessage: (text) => {
+            dispatch(onMessageActionCreator(text))   
+        },
+        newMessageDialogs: () => {
+            dispatch(addNewMesageActionCreator())
+        }
+    };
+};
+ 
+const DialogsContainer = () => connect(mapStateToProps, mapDispatchToProps)(Dialogs); 
 
 export default DialogsContainer;

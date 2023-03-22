@@ -54,8 +54,7 @@ const NavBar = (props) => {
                   // addPost={props.addPost} 
               />} />
               
-            <Route path="/dialogs/*" element={
-                  <DialogsContainer
+            <Route path="/dialogs/*" element={<DialogsContainer
                     // store = {props.store} 
 
                   // dispatch={props.dispatch}

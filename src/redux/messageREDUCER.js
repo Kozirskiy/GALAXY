@@ -1,32 +1,26 @@
 const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE';
 const UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE';
 
-<<<<<<< HEAD
-let initialState = {
-=======
-
 let  initialStateMess = {
->>>>>>> 01be926b052ece0e1b1eecc6fd754c5da3254e43
-    dialogData: [
-        { id: 1, name: 'Oleksandr' },
-        { id: 2, name: 'Bohdan' },
-        { id: 3, name: 'Juliya' }
-    ],
+        dialogData: [
+            { id: 1, name: 'Oleksandr' },
+            { id: 2, name: 'Bohdan' },
+            { id: 3, name: 'Juliya' }
+        ],
 
-    messageData: [
-        { id: 1, message: 'Hi, how are you?' },
-        { id: 2, message: 'Hello, when you will come to me?' },
-        { id: 3, message: 'Hi, what time is it now?' }
-    ],
+        messageData: [
+            { id: 1, message: 'Hi, how are you?' },
+            { id: 2, message: 'Hello, when you will come to me?' },
+            { id: 3, message: 'Hi, what time is it now?' }
+        ],
 
-    newMessageDialogs: 'write here'
+        newMessageDialogs: 'write here'
 };
 
-<<<<<<< HEAD
-const messageREDUCER = (state = initialState, action) => {
-=======
+
+
 const messageREDUCER = (state = initialStateMess, action) => {
->>>>>>> 01be926b052ece0e1b1eecc6fd754c5da3254e43
+
 
     switch (action.type)  {
         case ADD_NEW_MESSAGE:
@@ -35,7 +29,7 @@ const messageREDUCER = (state = initialStateMess, action) => {
                 message: state.newMessageDialogs,
             }; 
             state.messageData.push(newMessage);
-            state.newMessageDialogs = '';
+            // state.newMessageDialogs = '';
             return state;
 
         case UPDATE_NEW_MESSAGE:

@@ -17,26 +17,19 @@ const ProFile = (props) => {
                 <img className={s.headerContent} src={GalaxyPhoto} alt="bg" />
             </div>
             <ProFileInfo />
-
-            {/* <Route path="/profile" element={<ProFile dialogs={dialogs} messages={messages} />} /> */}
-
-            <MypostContainer
-
-
-            // store = {props.store}
-            // state = {props.state}
+            <MypostContainer 
+                                // store = {props.store}
+                                // state = {props.state}
 
 
 
-            // myPostData={props.appState.myPostData}
-            // dispatch={props.dispatch}
-            // updateNewPostText={props.updateNewPostText} 
+                                // myPostData={props.appState.myPostData}
+                                // dispatch={props.dispatch}
+                                // updateNewPostText={props.updateNewPostText} 
 
 
-            // newPostText={props.newPostText} 
-            // myPostData={props.myPostData} 
-
-
+                                // newPostText={props.newPostText} 
+                                // myPostData={props.myPostData} 
             />
         </div>
     )

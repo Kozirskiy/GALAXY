@@ -1,55 +1,28 @@
 import React from 'react';
-import { NavLink } from 'react-router-dom';
 import s from './Dialogs.module.css';
-import Icon from '../Profile/Myposts/Post/iconForPost.png';
-// import { addNewMesageActionCreator, onMessageActionCreator } from '../../../redux/messageREDUCER';
+import DialogItem from './DialogItem';
+import MessageItem from './MessageItem';
 
+const  Dialogs = (props) => {
 
-const DialogItem = (props) => {
+    let state = props.messagePAGE;
 
-    let path = '/dialogs/' + props.id;
+    let dialogElements = state.dialogData.map(d => <DialogItem name={d.name} id={d.id} />);      
 
-    return (
-        <div className={s.dialogs + ' ' + s.dflex}>
-            <div>
+    let messageElements = state.messageData.map(m => <MessageItem messageText={m.message} />);
 
-                <NavLink className={s.item} to={path}>{props.name}</NavLink>
-                
-            </div>
-        </div>
-    )
-}
-
-const MessageItem = (props) => {
-    return (
-        <div className={s.messagesBlock}>
-            <img src={Icon} alt="icon" />
-            <p className={s.messagesItem}>{props.messageText}</p>
-        </div>
-    )
-}
-
-
-const Dialogs = (props) => {
-    
-    // let state = props.dialogData;
-
-    let dialogElements = props.dialogData.map(dialogE => <DialogItem name={dialogE.name} id={dialogE.id} />)
-
-    let messageElements = props.messageData.map(messEle => <MessageItem messageText={messEle.message} />)
+    let newMessageItem = state.newMessageItem;
 
     let newMessageElement = React.createRef();
 
     let addMessageFromButton = () => {
-        props.addMessageBody();
+        props.newMessageDialogs();
     };
 
     let onMessage = (e) => {
-        let text = e.target.value;
-        props.newMessageItemBody(text)
+        let text = newMessageElement.current.value;
+        props.onMessage(text);
     };
-
-    
     return (
         <div className={s.contentBlock}>
             <h2>Your dialogs in Galaxy</h2>
@@ -65,7 +38,7 @@ const Dialogs = (props) => {
 
                     <div className={s.contentBlock__textarea_button + " " + s.dflex}>
 
-                        <textarea onChange={onMessage} type="text" value={props.newMessageDialogs} ref={newMessageElement} placeholder='write here'>
+                        <textarea onChange={onMessage} type="text" value={newMessageItem} ref={newMessageElement} placeholder='write here'>
 
                         </textarea>
 

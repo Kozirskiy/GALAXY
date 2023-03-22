@@ -1,51 +1,64 @@
 import React from 'react';
 import { addPostActionCreator, updateNewPostActionCreator } from '../../../../redux/postREDUCER';
-import StoreContext from '../../../../storeContext';
 import Mypost from './Mypost';
+import { connect } from 'react-redux';
+
+
+//import StoreContext from '../../../../storeContext';
 // import store from '../../../../redux/redux-store';
 // import Post from './Post/Post';
 
 
-const MypostContainer = (props) => {
 
-    //let state = props.store.getState();
+// const MypostContainer = () => {
 
-    // let addPost = () => {
-    //     props.store.dispatch(addPostActionCreator());
-    // };
+//     return (
+//         <StoreContext.Consumer>
+//             {(store) => {
 
-    // let onPostChange = (text) => {
-    //     let action = updateNewPostActionCreator(text);
-    //     props.store.dispatch(action);
+//                 let state = store.getState().postPAGE;
+                
 
-    // };
-    // let myPostElem = props.store.myPostData.map((elem) => {
-    //     return  <Post message={elem.message} iconLike={elem.iconLike} />;
-    //   });
-
-    return (
-        <StoreContext.Consumer>{     
-            (store) => {
-                let state = store.getState();
-
-                let addPost = () => {
-                    store.dispatch(addPostActionCreator());
-                };
+//                 let addPost = () => {
+//                     store.dispatch(addPostActionCreator());
+//                 };
             
-                let onPostChange = (text) => {
-                    let action = updateNewPostActionCreator(text);
-                    store.dispatch(action);
-            
-                };
+//                 let onPostChangeChange = (text) => {
+//                     store.dispatch(updateNewPostActionCreator(text));
+//                 };
 
-              return  < Mypost
-                addPost={addPost}
-                updateNewPostText={onPostChange}
-                myPostData={state.myPostData}
-                newPostText={state.newPostText}
 
-            /> } }
-        </StoreContext.Consumer>)
-}
+//               return  < Mypost
+//                                 // onAddPostClick={addPost}
+//                                 onPostChange={onPostChangeChange}
+//                                 newPostText={addPost}
+//                                 postPAGE={state}
+                                
+//                                                     // myPostElem={addPost}
+//                                                     // newPostText={onPostChange}
+//                                 // myPostData={state.postPAGE.myPostData}
+//                                                     // newPostText = {state.postPAGE.newPostText}
+
+//             /> } }
+//         </StoreContext.Consumer>)
+// }
+
+let mapStateToProps = (state) => {
+    return {
+        postPAGE: state.postPAGE
+    };
+};
+
+let mapDispatchToProps = (dispatch) => { 
+    return {
+        newPostText: () => {
+            dispatch(addPostActionCreator());
+        },
+        onPostChange: (text)=> {
+            dispatch(updateNewPostActionCreator(text));
+        }
+    };
+};
+const MypostContainer = () => connect(mapStateToProps, mapDispatchToProps) (Mypost)
 
 export default MypostContainer;

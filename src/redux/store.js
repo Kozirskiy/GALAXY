@@ -1,17 +1,14 @@
-<<<<<<< HEAD
+
 // import messageREDUCER from "./messageREDUCER";
 // import postREDUCER from "./postREDUCER";
-=======
-import messageREDUCER from "./messageREDUCER";
-import postREDUCER from "./postREDUCER";
->>>>>>> 01be926b052ece0e1b1eecc6fd754c5da3254e43
+
 
 // const ADD_POST = 'ADD-POST';
 // const UPDATE_NEW_POST_TEXT = 'UPDATE-NEW-POST-TEXT';
 // const ADD_NEW_MESSAGE = 'ADD-NEW-MESSAGE';
 // const UPDATE_NEW_MESSAGE = 'UPDATE-NEW-MESSAGE';
 
-<<<<<<< HEAD
+
 // let store = {
 //     _state : {
 
@@ -130,8 +127,8 @@ import postREDUCER from "./postREDUCER";
 //         // }
 //     }  
 // };
-=======
-let store = {
+
+// let store = {
     // _state : {
 
     //     myPostData: [
@@ -156,100 +153,100 @@ let store = {
     
     //     newMessageDialogs: 'write here'
     // },
-    _callSubscriber () {
-        console.log('State chnged');
-    },
-    // ____________________
+//     _callSubscriber () {
+//         console.log('State chnged');
+//     },
+//     // ____________________
 
-    getState () {
-        return this._state;
-    },
-    subscribe (observer) {
-        this._callSubscriber = observer;
-    },
-    // ____________________
+//     getState () {
+//         return this._state;
+//     },
+//     subscribe (observer) {
+//         this._callSubscriber = observer;
+//     },
+//     // ____________________
 
-    // addPost () {
-    //     let newPost = {
-    //         id: 4,
-    //         message: this._state.newPostText,
-    //         iconLike: 0
-    //     }; 
-    //     if (this._state.newPostText !== '') {
-    //         this._state.myPostData.push(newPost);
-    //         this._state.newPostText = '';
-    //         this._callSubscriber(this._state);
-    //     }
-    // },
-    // updateNewPostText (newText) {
-    //     this._state.newPostText = newText;
-    //     this._callSubscriber(this._state);
-    // },
-    // ____________________
+//     // addPost () {
+//     //     let newPost = {
+//     //         id: 4,
+//     //         message: this._state.newPostText,
+//     //         iconLike: 0
+//     //     }; 
+//     //     if (this._state.newPostText !== '') {
+//     //         this._state.myPostData.push(newPost);
+//     //         this._state.newPostText = '';
+//     //         this._callSubscriber(this._state);
+//     //     }
+//     // },
+//     // updateNewPostText (newText) {
+//     //     this._state.newPostText = newText;
+//     //     this._callSubscriber(this._state);
+//     // },
+//     // ____________________
 
-    // addNewMessage () {
-    //     let newMessage = {
-    //         id: 4,
-    //         message: this._state.newMessageDialogs,
-    //     }; 
-    //     if ( this._state.newMessageDialogs !== '') {
-    //         this._state.messageData.push(newMessage);
-    //         this._state.newMessageDialogs = '';
-    //         this._callSubscriber(this._state);
-    //     }
+//     // addNewMessage () {
+//     //     let newMessage = {
+//     //         id: 4,
+//     //         message: this._state.newMessageDialogs,
+//     //     }; 
+//     //     if ( this._state.newMessageDialogs !== '') {
+//     //         this._state.messageData.push(newMessage);
+//     //         this._state.newMessageDialogs = '';
+//     //         this._callSubscriber(this._state);
+//     //     }
         
-    // },
+//     // },
 
-    // updateNewMessage (newMessageItem) {
-    //     this._state.newMessageDialogs = newMessageItem;
-    //     this._callSubscriber(this._state);
-    // },
+//     // updateNewMessage (newMessageItem) {
+//     //     this._state.newMessageDialogs = newMessageItem;
+//     //     this._callSubscriber(this._state);
+//     // },
 
-    dispatch (action) { 
+//     dispatch (action) { 
 
-       this._state =  postREDUCER(this._state, action);
-       this._state =  messageREDUCER(this._state, action);
+//        this._state =  postREDUCER(this._state, action);
+//        this._state =  messageREDUCER(this._state, action);
 
-       this._callSubscriber(this._state);
+//        this._callSubscriber(this._state);
 
 
-        // if (action.type === ADD_POST) {
-        //     let newPost = {
-        //         id: 4,
-        //         message: this._state.newPostText,
-        //         iconLike: 0
-        //     }; 
-        //     if (this._state.newPostText !== '') {
-        //         this._state.myPostData.push(newPost);
-        //         this._state.newPostText = '';
-        //         this._callSubscriber(this._state);
-        //     }
-        // } 
+//         // if (action.type === ADD_POST) {
+//         //     let newPost = {
+//         //         id: 4,
+//         //         message: this._state.newPostText,
+//         //         iconLike: 0
+//         //     }; 
+//         //     if (this._state.newPostText !== '') {
+//         //         this._state.myPostData.push(newPost);
+//         //         this._state.newPostText = '';
+//         //         this._callSubscriber(this._state);
+//         //     }
+//         // } 
         
-        // else if (action.type === UPDATE_NEW_POST_TEXT) {
-        //     this._state.newPostText = action.newText;
-        //     this._callSubscriber(this._state);
-        // } 
+//         // else if (action.type === UPDATE_NEW_POST_TEXT) {
+//         //     this._state.newPostText = action.newText;
+//         //     this._callSubscriber(this._state);
+//         // } 
         
-        // else if (action.type === ADD_NEW_MESSAGE) {
-        //     let newMessage = {
-        //         id: 4,
-        //         message: this._state.newMessageDialogs,
-        //     }; 
-        //     if ( this._state.newMessageDialogs !== '') {
-        //         this._state.messageData.push(newMessage);
-        //         this._state.newMessageDialogs = '';
-        //         this._callSubscriber(this._state);
-        //     }
-        // } 
+//         // else if (action.type === ADD_NEW_MESSAGE) {
+//         //     let newMessage = {
+//         //         id: 4,
+//         //         message: this._state.newMessageDialogs,
+//         //     }; 
+//         //     if ( this._state.newMessageDialogs !== '') {
+//         //         this._state.messageData.push(newMessage);
+//         //         this._state.newMessageDialogs = '';
+//         //         this._callSubscriber(this._state);
+//         //     }
+//         // } 
 
-        // else if (action.type === UPDATE_NEW_MESSAGE) {
-        //     this._state.newMessageDialogs = action.newMessageItem;
-        //     this._callSubscriber(this._state);
-        // }
-    }  
-};
->>>>>>> 01be926b052ece0e1b1eecc6fd754c5da3254e43
+//         // else if (action.type === UPDATE_NEW_MESSAGE) {
+//         //     this._state.newMessageDialogs = action.newMessageItem;
+//         //     this._callSubscriber(this._state);
+//         // }
+//     }  
+// };
+
 
 // export const addPostActionCreator = () => ({type: ADD_POST});
 
@@ -267,12 +264,7 @@ let store = {
 //                  newMessageItem: text};
 //     }
 
-<<<<<<< HEAD
+
 // export default store;
 
 // window.store =store;
-=======
-export default store;
-
-window.store =store;
->>>>>>> 01be926b052ece0e1b1eecc6fd754c5da3254e43
