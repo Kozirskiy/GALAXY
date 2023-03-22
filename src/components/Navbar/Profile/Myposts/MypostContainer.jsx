@@ -46,6 +46,7 @@ import { connect } from 'react-redux';
 let mapStateToProps = (state) => {
     return {
         postPAGE: state.postPAGE
+        //postPAGE: state.postPAGE
     };
 };
 
