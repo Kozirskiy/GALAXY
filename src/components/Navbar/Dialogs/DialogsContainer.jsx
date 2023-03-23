@@ -38,32 +38,46 @@ import StoreContext from '../../../storeContext';
 //     )
 // }
 
-const DialogsContainer = () => {
+// const DialogsContainer = () => {
 
-    return (
-        <StoreContext.Consumer> 
-            {(store) => {
-                // let state = store.getState().messagePAGE;
+//     return (
+//         <StoreContext.Consumer> 
+//             {(store) => {
+//                 // let state = store.getState().messagePAGE;
 
-                let addMessageFromButtonClick = () => {
-                    store.dispatch(addNewMesageActionCreator())
-                };
+//                 let addMessageFromButtonClick = () => {
+//                     store.dispatch(addNewMesageActionCreator())
+//                 };
             
-                let onMessageChange = (text) => {
-                    store.dispatch(onMessageActionCreator(text))
-                };                
-                return <Dialogs
-                                newMessageDialogs= {addMessageFromButtonClick}
-                                onMessage={onMessageChange}
-                                messagePAGE={store.getState().messagePAGE}
-            /> } }
+//                 let onMessageChange = (text) => {
+//                     store.dispatch(onMessageActionCreator(text))
+//                 };                
+//                 return <Dialogs
+//                                 newMessageDialogs= {addMessageFromButtonClick}
+//                                 onMessage={onMessageChange}
+//                                 messagePAGE={store.getState().messagePAGE}
+//             /> } }
             
-        </StoreContext.Consumer>
-    )
+//         </StoreContext.Consumer>
+//     )
+// }
+let mapStateToProps = (state)=> {
+    return {
+        messagePAGE: state.messagePAGE
+    }
+}
+let mapDispatchToProps = (dispatch)=> {
+return {
+    newMessageDialogs: () => {
+        dispatch(addNewMesageActionCreator());
+    },
+    onMessage: (text) => {
+        dispatch(onMessageActionCreator(text));
+    }
+}
 }
 
-
-
+const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 
 
 
