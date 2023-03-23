@@ -43,7 +43,7 @@ const DialogsContainer = () => {
     return (
         <StoreContext.Consumer> 
             {(store) => {
-                let state = store.getState().messagePAGE;
+                // let state = store.getState().messagePAGE;
 
                 let addMessageFromButtonClick = () => {
                     store.dispatch(addNewMesageActionCreator())
@@ -53,17 +53,9 @@ const DialogsContainer = () => {
                     store.dispatch(onMessageActionCreator(text))
                 };                
                 return <Dialogs
-                
                                 newMessageDialogs= {addMessageFromButtonClick}
                                 onMessage={onMessageChange}
-
-
-                                messagePAGE={state}
-                                //or
-                            //    dialogData={state.messagePAGE.dialogData}
-                                
-                            //     messageData={state.messagePAGE.messageData}
-                            
+                                messagePAGE={store.getState().messagePAGE}
             /> } }
             
         </StoreContext.Consumer>

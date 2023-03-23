@@ -16,7 +16,7 @@ const MypostContainer = () => {
         <StoreContext.Consumer>
             { (store) => {
 
-                let state = store.getState().postPAGE;
+                // let state = store.getState().postPAGE;
                 
 
                 let addPost = () => {
@@ -29,15 +29,10 @@ const MypostContainer = () => {
 
 
               return  < Mypost
-                                // onAddPostClick={addPost}
                                 onPostChange={onPostChangeChange}
                                 newPostText={addPost}
-                                postPAGE={state}
+                                postPAGE={store.getState().postPAGE}
                                 
-                                //                     myPostElem={addPost}
-                                //                     // newPostText={onPostChange}
-                                // myPostData={state.postPAGE.myPostData}
-                                                    // newPostText = {state.postPAGE.newPostText}
 
             /> } }
         </StoreContext.Consumer>)
