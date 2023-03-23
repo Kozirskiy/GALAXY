@@ -2,6 +2,7 @@
 import { addNewMesageActionCreator, onMessageActionCreator } from '../../../redux/messageREDUCER';
 import Dialogs from './Dialogs';
 import { connect } from 'react-redux';
+import StoreContext from '../../../storeContext';
 
 
 // import StoreContext from '../../../storeContext';
@@ -37,54 +38,64 @@ import { connect } from 'react-redux';
 //     )
 // }
 
-// const DialogsContainer = () => {
+const DialogsContainer = () => {
 
-//     return (
-//         <StoreContext.Consumer> 
-//             {(store) => {
-//                 let state = store.getState().messagePAGE;
+    return (
+        <StoreContext.Consumer> 
+            {(store) => {
+                let state = store.getState().messagePAGE;
 
-//                 let addMessageFromButtonClick = () => {
-//                     store.dispatch(addNewMesageActionCreator())
-//                 };
+                let addMessageFromButtonClick = () => {
+                    store.dispatch(addNewMesageActionCreator())
+                };
             
-//                 let onMessageChange = (text) => {
-//                     store.dispatch(onMessageActionCreator(text))
-//                 };                
-//                 return <Dialogs
+                let onMessageChange = (text) => {
+                    store.dispatch(onMessageActionCreator(text))
+                };                
+                return <Dialogs
                 
-//                                 newMessageDialogs= {addMessageFromButtonClick}
-//                                 onMessage={onMessageChange}
+                                newMessageDialogs= {addMessageFromButtonClick}
+                                onMessage={onMessageChange}
 
-//                                 messagePAGE={state}
-//                                 //or
-//                                // dialogData={state.messagePAGE.dialogData}
+
+                                messagePAGE={state}
+                                //or
+                            //    dialogData={state.messagePAGE.dialogData}
                                 
-//                                 //messageData={state.messagePAGE.messageData}
+                            //     messageData={state.messagePAGE.messageData}
                             
-//             /> } }
+            /> } }
             
-//         </StoreContext.Consumer>
-//     )
-// }
+        </StoreContext.Consumer>
+    )
+}
 
-let mapStateToProps = (state) => {
-    return {
-        messagePAGE: state.messagePAGE
-    };
-};
 
-let mapDispatchToProps = (dispatch) => { 
-    return {
-        onMessage: (text) => {
-            dispatch(onMessageActionCreator(text))   
-        },
-        newMessageDialogs: () => {
-            dispatch(addNewMesageActionCreator())
-        }
-    };
-};
+
+
+
+
+
+// let mapStateToProps = (state) => {
+//     return {
+//         // dialogData: state.messagePAGE.dialogData,
+
+//         // newMessageItem: state.messagePAGE.newMessageItem,
+//         messagePAGE: state.messagePAGE
+//     };
+// };
+
+// let mapDispatchToProps = (dispatch) => { 
+//     return {
+//         onMessage: (text) => {
+//             dispatch(onMessageActionCreator(text))   
+//         },
+//         newMessageDialogs: () => {
+//             dispatch(addNewMesageActionCreator())
+//         }
+//     };
+// };
  
-const DialogsContainer = () => connect(mapStateToProps, mapDispatchToProps)(Dialogs); 
+// const DialogsContainer = () => connect (mapStateToProps, mapDispatchToProps)(Dialogs); 
 
 export default DialogsContainer;

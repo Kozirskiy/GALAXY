@@ -34,7 +34,7 @@ const NavBar = (props) => {
                 <NavLink className={navData => navData.isActive ? s.active : s.item} to='/settingGalaxy'>Settings Galaxy</NavLink>
               </div>
             </div>
-
+      
           <Routes>
             <Route path="/profile" element={ 
             <ProFile 
@@ -54,7 +54,7 @@ const NavBar = (props) => {
                   // addPost={props.addPost} 
               />} />
               
-            <Route path="/dialogs/*" element={<DialogsContainer
+            <Route path="/dialogs" element={<DialogsContainer
                     // store = {props.store} 
 
                   // dispatch={props.dispatch}

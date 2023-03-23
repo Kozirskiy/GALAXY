@@ -1,15 +1,15 @@
-// import React from "react";
-// // import store from "./redux/redux-store";
+import React from "react";
+// import store from "./redux/redux-store";
 
-// const StoreContext = React.createContext(null);
+const StoreContext = React.createContext(null);
 
-//  const Provider = (props) => {
+export const Provider = (props) => {
 
-//     return <StoreContext.Provider value={props.store}>
+    return <StoreContext.Provider value={props.store}>
 
-//         {props.children}
+                     {props.children}
 
-//     </StoreContext.Provider>
-// }
+           </StoreContext.Provider>
+}
 
-//  default StoreContext;
+ export default StoreContext;

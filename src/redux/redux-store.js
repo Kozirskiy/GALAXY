@@ -1,38 +1,13 @@
-
 import {combineReducers, legacy_createStore} from "redux";
 import postREDUCER from './postREDUCER';
 import messageREDUCER from './messageREDUCER';
-// import { combineReducers } from "@reduxjs/toolkit";
-
-
-
-
 
 let reducers = combineReducers({
     postPAGE: postREDUCER,
     messagePAGE: messageREDUCER
 });
 
-
 let store = legacy_createStore(reducers);
-
-// const rootReducer = combineReducers({
-//     profileReducer: profileReducer,
-//     messagesReducer: messagesReducer,
-//   })
-
-// const  rootReducer = combineReducers({
-//     postREDUCER: postREDUCER,
-//     messageREDUCER: messageREDUCER,
-//   });
-
-
-
-// export const store = configureStore({
-//     reducer: rootReducer
-//   });
-
-// let store = createStore(reducers);
 
 export default store;
 
