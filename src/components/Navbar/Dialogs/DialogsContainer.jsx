@@ -2,7 +2,7 @@
 import { addNewMesageActionCreator, onMessageActionCreator } from '../../../redux/messageREDUCER';
 import Dialogs from './Dialogs';
 import { connect } from 'react-redux';
-import StoreContext from '../../../storeContext';
+// import StoreContext from '../../../storeContext';
 
 
 // import StoreContext from '../../../storeContext';
@@ -64,8 +64,8 @@ import StoreContext from '../../../storeContext';
 let mapStateToProps = (state)=> {
     return {
         messagePAGE: state.messagePAGE
-    }
-}
+    };
+};
 let mapDispatchToProps = (dispatch)=> {
 return {
     newMessageDialogs: () => {
@@ -74,8 +74,8 @@ return {
     onMessage: (text) => {
         dispatch(onMessageActionCreator(text));
     }
-}
-}
+};
+};
 
 const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(Dialogs);
 

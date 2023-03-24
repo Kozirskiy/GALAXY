@@ -19,7 +19,7 @@ const  Dialogs = (props) => {
         props.newMessageDialogs();
     };
 
-    let onMessage = (e) => {
+    let onMessage = () => {
         let text = newMessageElement.current.value;
         props.onMessage(text);
     };
