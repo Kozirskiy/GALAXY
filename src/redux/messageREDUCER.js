@@ -23,18 +23,29 @@ const messageREDUCER = (state = initialStateMess, action) => {
 
 
     switch (action.type)  {
-        case ADD_NEW_MESSAGE:
+        case ADD_NEW_MESSAGE: {
+
             let newMessage = {
                 id: 4,
                 message: state.newMessageDialogs,
             }; 
-            state.messageData.push(newMessage);
-            // state.newMessageDialogs = '';
-            return state;
 
-        case UPDATE_NEW_MESSAGE:
-            state.newMessageDialogs = action.newMessageItem;
-            return state;
+            let stateCopyMess = {...state};
+            stateCopyMess.messageData = [...state.messageData];
+            stateCopyMess.messageData.push(newMessage);
+            stateCopyMess.newMessageDialogs = '';
+            return stateCopyMess;
+        }
+            
+
+        case UPDATE_NEW_MESSAGE: {
+
+            let stateCopyMess = {...state};
+            stateCopyMess.newMessageDialogs = {...state.newMessageDialogs}
+            stateCopyMess.newMessageDialogs = action.newMessageItem;
+            return stateCopyMess;
+        }
+            
 
         default:
             return state;

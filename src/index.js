@@ -14,7 +14,7 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-let rerenderEntireTree = () => {
+//let rerenderEntireTree = () => {
     root.render(
       // <BrowserRouter>
             <Provider store={store}>
@@ -52,18 +52,10 @@ let rerenderEntireTree = () => {
       // </React.StrictMode >
 
     );
-  }
+//   }
 
-rerenderEntireTree();
-
-
-store.subscribe(() => {
-      
-      rerenderEntireTree();
-
+// rerenderEntireTree();
 
 // store.subscribe(() => {
-//   let state = store.getState();
-//   rerenderEntireTree(state);
-
-});
+//       rerenderEntireTree();
+// });
