@@ -25,32 +25,58 @@ const messageREDUCER = (state = initialStateMess, action) => {
 //     ...state,
 
 // };
+    // let stateCopy;
+
     switch (action.type)  {
 
-    case UPDATE_NEW_MESSAGE:  
-        {
-            let stateCopy = {...state}
-            stateCopy.newMessageDialogs = {...state.newMessageDialogs};
-            stateCopy.newMessageDialogs = action.newMessageText;
-            return stateCopy;
-        }
-    case ADD_NEW_MESSAGE: 
-    {
-        let newMessage = {
-            id: 4,
-            message: state.newMessageDialogs,
-        }; 
+    case UPDATE_NEW_MESSAGE:
 
-        let stateCopy = {...state};
-        stateCopy.messageData = [...state.messageData];
-        stateCopy.messageData.push(newMessage);
-        stateCopy.newMessageDialogs = '';
-        return stateCopy;
-    }
+           return {
+                ...state,
+                newMessageDialogs: action.newMessageText
+             };
+
+    case ADD_NEW_MESSAGE:
+        let text = state.newMessageDialogs;
+        return{
+            ...state,
+            newMessageDialogs: '',
+            messageData: [...state.messageData, {id:4, message: text}]
+        };
+        
     default:
         return state;
     }
+
+    //or like of previous version 
+
+    // switch (action.type)  {
+
+    //     case UPDATE_NEW_MESSAGE:  
+    //         {
+    //             let stateCopy = {...state}
+    //             stateCopy.newMessageDialogs = {...state.newMessageDialogs};
+    //             stateCopy.newMessageDialogs = action.newMessageText;
+    //             return stateCopy;
+    //         }
+    //     case ADD_NEW_MESSAGE: 
+    //     {
+    //         let newMessage = {
+    //             id: 4,
+    //             message: state.newMessageDialogs,
+    //         }; 
+    
+    //         let stateCopy = {...state};
+    //         stateCopy.messageData = [...state.messageData];
+    //         stateCopy.messageData.push(newMessage);
+    //         stateCopy.newMessageDialogs = '';
+    //         return stateCopy;
+    //     }
+    //     default:
+    //         return state;
+    //     }
 };
+
                  
         
            

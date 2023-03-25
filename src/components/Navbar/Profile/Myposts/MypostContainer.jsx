@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 let MapStateToProps = (state) => {
     return {
         postPAGE: state.postPAGE
+        // newPostText: state.postPAGE.newPostText
     };
 };
 
@@ -19,7 +20,7 @@ let MapDispatchToProps = (dispatch) => {
             dispatch(addPostActionCreator())
         }
     };
-    
+
 };
 
 const MypostContainer = connect(MapStateToProps, MapDispatchToProps)(Mypost);
