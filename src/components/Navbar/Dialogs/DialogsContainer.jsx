@@ -68,7 +68,7 @@ let mapStateToProps = (state)=> {
 };
 let mapDispatchToProps = (dispatch)=> {
 return {
-    newMessageDialogs: () => {
+    newMessageDialogsGlobal: () => {
         dispatch(addNewMesageActionCreator());
     },
     onMessage: (text) => {

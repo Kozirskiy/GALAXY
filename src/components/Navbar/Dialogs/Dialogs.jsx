@@ -7,16 +7,16 @@ const  Dialogs = (props) => {
 
     let state = props.messagePAGE;
 
-    let dialogElements = state.dialogData.map(d => <DialogItem name={d.name} id={d.id} />);      
+    let dialogElements = state.dialogData.map(d => <DialogItem key={d.id} name={d.name}  />);      
 
-    let messageElements = state.messageData.map(m => <MessageItem messageText={m.message} />);
+    let messageElements = state.messageData.map(m => <MessageItem messageText={m.message} key={m.id} />);
 
-    let newMessageItem = state.newMessageItem;
+    let newMessageText = state.newMessageText;
 
     let newMessageElement = React.createRef();
 
     let addMessageFromButton = () => {
-        props.newMessageDialogs();
+        props.newMessageDialogsGlobal();
     };
 
     let onMessage = () => {
@@ -38,7 +38,7 @@ const  Dialogs = (props) => {
 
                     <div className={s.contentBlock__textarea_button + " " + s.dflex}>
 
-                        <textarea onChange={onMessage} type="text" value={newMessageItem} ref={newMessageElement} placeholder='write here'>
+                        <textarea onChange={onMessage} type="text" value={newMessageText} ref={newMessageElement} placeholder='write here placeholder'>
 
                         </textarea>
 

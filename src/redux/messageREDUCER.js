@@ -14,42 +14,48 @@ let  initialStateMess = {
             { id: 3, message: 'Hi, what time is it now?' }
         ],
 
-        newMessageDialogs: 'write here'
+        newMessageDialogs: 'Your new message'
 };
 
 
 
 const messageREDUCER = (state = initialStateMess, action) => {
 
+// let stateCopy = {
+//     ...state,
 
+// };
     switch (action.type)  {
-        case ADD_NEW_MESSAGE: {
 
-            let newMessage = {
-                id: 4,
-                message: state.newMessageDialogs,
-            }; 
-
-            let stateCopyMess = {...state};
-            stateCopyMess.messageData = [...state.messageData];
-            stateCopyMess.messageData.push(newMessage);
-            stateCopyMess.newMessageDialogs = '';
-            return stateCopyMess;
+    case UPDATE_NEW_MESSAGE:  
+        {
+            let stateCopy = {...state}
+            stateCopy.newMessageDialogs = {...state.newMessageDialogs};
+            stateCopy.newMessageDialogs = action.newMessageText;
+            return stateCopy;
         }
-            
+    case ADD_NEW_MESSAGE: 
+    {
+        let newMessage = {
+            id: 4,
+            message: state.newMessageDialogs,
+        }; 
 
-        case UPDATE_NEW_MESSAGE: {
+        let stateCopy = {...state};
+        stateCopy.messageData = [...state.messageData];
+        stateCopy.messageData.push(newMessage);
+        stateCopy.newMessageDialogs = '';
+        return stateCopy;
+    }
+    default:
+        return state;
+    }
+};
+                 
+        
+           
 
-            let stateCopyMess = {...state};
-            stateCopyMess.newMessageDialogs = {...state.newMessageDialogs}
-            stateCopyMess.newMessageDialogs = action.newMessageItem;
-            return stateCopyMess;
-        }
-            
-
-        default:
-            return state;
-        }
+        
             
     
     //  if (action.type === ADD_NEW_MESSAGE) {
@@ -70,14 +76,16 @@ const messageREDUCER = (state = initialStateMess, action) => {
     //     // this._callSubscriber(this._state);
     // }
     // return state;
-};
+// };
+
+
 export const addNewMesageActionCreator = () => {
     return {type: ADD_NEW_MESSAGE};
 };
 
 export const onMessageActionCreator = (text) => {
     return { type: UPDATE_NEW_MESSAGE,
-             newMessageItem: text};
+             newMessageText: text};
 }
 
 export default messageREDUCER;

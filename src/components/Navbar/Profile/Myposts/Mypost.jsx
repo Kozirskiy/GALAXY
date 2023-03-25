@@ -32,7 +32,7 @@ let state = props.postPAGE;
             </h2>
             {/* <input className='' type="text" ref={newPostElement} placeholder='your news...' /> */}
 
-            <textarea onChange={onPostChange} className='' type="text" ref={newPostElement}  value={newText} placeholder='write here new text'/>
+            <textarea onChange={onPostChange} className='' type="text" ref={newPostElement}  value={newText} placeholder='write here new text placeholder'/>
 
             <div className={s.btnClass}>
                 <button onClick={onAddPostClick}>Add post</button>

@@ -11,13 +11,22 @@ let  initialState = {
             { id: 3, message: "Third post", iconLike: 23 }
         ],
 
-        newPostText: 'Write new post'
+        newPostText: 'Your new post'
     
 };
 
 
 const postREDUCER = (state = initialState, action) => {
     switch(action.type) {
+
+        case UPDATE_NEW_POST_TEXT: 
+        {
+            let stateCopy = {...state};
+            stateCopy.newPostText = {...state.newPostText};
+            stateCopy.newPostText = action.newText;
+            return stateCopy;
+        }
+        
         case ADD_POST: {
             let newPost = {
                 id: 4,
@@ -31,22 +40,10 @@ const postREDUCER = (state = initialState, action) => {
             stateCopy.newPostText = '';
             return stateCopy;
         }
-            
-
-        case UPDATE_NEW_POST_TEXT: {
-            let stateCopy = {...state};
-            stateCopy.newPostText = {...state.newPostText};
-            stateCopy.newPostText = action.newText;
-            return stateCopy;
-        }
-                
-
+        
         default: 
             return state;
     }
-    
-
-
 //     if (action.type === ADD_POST) {
 //         let newPost = {
 //             id: 4,
