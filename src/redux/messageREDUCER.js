@@ -21,12 +21,6 @@ let  initialStateMess = {
 
 const messageREDUCER = (state = initialStateMess, action) => {
 
-// let stateCopy = {
-//     ...state,
-
-// };
-    // let stateCopy;
-
     switch (action.type)  {
 
     case UPDATE_NEW_MESSAGE:
