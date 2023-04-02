@@ -13,3 +13,10 @@
     width: 30px;
     height: 30px;
 }
+.selectedPage {
+    font-weight: bold;
+    padding-bottom: 30px;
+}
+.spanBlock {
+    margin-bottom: 30px;
+}
