@@ -6,9 +6,6 @@
     width: 80%;
     background: #fff;
 }
-/* .usersWrapper {
-    display: flex;
-} */
 .photo {
     width: 30px;
     height: 30px;
@@ -16,7 +13,18 @@
 .selectedPage {
     font-weight: bold;
     padding-bottom: 30px;
+    margin-right: 3px;
+    margin-left: 3px;
+    font-size: 22px;
+    color: #00a38d;
+}
+.selectedPage:hover {
+    cursor: pointer;
 }
 .spanBlock {
     margin-bottom: 30px;
+    width: 350px;
+}
+.hoverPage:hover {
+    cursor: pointer;
 }
