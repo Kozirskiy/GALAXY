@@ -15,7 +15,14 @@ let Users = (props) => {
 
 return (
     <div className={s.contentBlock}>
+                <div className={s.spanBlock}>
+                    {pages.map(p => {
+                        return <span className={props.currentPage === p ? s.selectedPage : '' + s.hoverPage} onClick={(e) => {
+                            props.onPageChanged(p)
+                        }}>{p}</span>
 
+                        })}
+                </div>
                 {
                     props.users.map(u => <div key={u.id}>
                         <span>
@@ -55,14 +62,29 @@ return (
                     </div>)
 
                 }
-                <div className={s.spanBlock}>
-                    {pages.map(p => {
-                        return <span className={props.currentPage === p ? s.selectedPage : '' + s.hoverPage} onClick={(e) => {
-                            props.onPageChanged(p)
-                        }}>{p}</span>
-                    })}
-                </div>
+                
             </div >
-)};
+)}
 
 export default Users;
+
+
+// {/* {pages.map(p => {
+//                         if(pagesCount > 10) {
+//                             if(props.currentPage > 5) {
+//                                 for (let i = props.currentPage-4; i <= props.currentPage+5; i++) {
+//                                     pages.push(i)
+//                                     if(i == pagesCount) break
+//                                 }
+//                             }
+//                             else {
+//                                 for (let i = 1; i <= 10; i++) {
+//                                     pages.push(i)
+//                                     if(i == pagesCount) break
+//                                 }
+//                             }
+//                         }  else {
+//                             for (let i = 1; i <= pagesCount; i++) {
+//                                 pages.push(i)
+//                             }
+//                         } */}

@@ -9,6 +9,7 @@ import SettingGalaxy from './SettingGalaxy/SettingGalaxy';
 import DialogsContainer from './Dialogs/DialogsContainer';
 
 import UsersContainer from './Users/UsersContainer';
+import Preloader from '../common/Preloader/Preloader';
 
 
 
@@ -20,6 +21,7 @@ const NavBar = (props) => {
       <nav className={s.nav}>
         <div className={`${s.nav__wrapper} ${s.dfex}`}>
           <div className={s.nav__link}>
+            
             <div>
               <NavLink className={navData => navData.isActive ? s.active : s.item} to='/profile'>Profile</NavLink>
               </div>
@@ -38,6 +40,7 @@ const NavBar = (props) => {
               <div>
                 <NavLink className={navData => navData.isActive ? s.active : s.item} to='/settingGalaxy'>Settings Galaxy</NavLink>
               </div>
+              <Preloader/>
             </div>
           <Routes>
             <Route path="/profile" element={ <ProFile/>} />
