@@ -16,20 +16,8 @@ const ProFile = (props) => {
             <div className={s.contentImg}>
                 <img className={s.headerContent} src={GalaxyPhoto} alt="bg" />
             </div>
-            <ProFileInfo />
+            <ProFileInfo profile={props.profile}/>
             <MypostContainer 
-                                // store = {props.store}
-                                // state = {props.state}
-
-
-
-                                // myPostData={props.appState.myPostData}
-                                // dispatch={props.dispatch}
-                                // updateNewPostText={props.updateNewPostText} 
-
-
-                                // newPostText={props.newPostText} 
-                                // myPostData={props.myPostData} 
             />
         </div>
     )

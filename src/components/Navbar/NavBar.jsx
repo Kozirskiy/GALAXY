@@ -1,20 +1,15 @@
 import React from 'react';
-import ProFile from './Profile/ProFile';
 import s from './Navbar.module.css';
-
 import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
 import News from './News/News';
 import Music from './Music/Music';
 import SettingGalaxy from './SettingGalaxy/SettingGalaxy';
 import DialogsContainer from './Dialogs/DialogsContainer';
-
 import UsersContainer from './Users/UsersContainer';
 import Preloader from '../common/Preloader/Preloader';
-
-
+import ProfileContainer from './Profile/ProfileContainer';
 
 const NavBar = (props) => {
-
 
   return (
     <BrowserRouter>
@@ -43,8 +38,7 @@ const NavBar = (props) => {
               <Preloader />
             </div>
           <Routes>
-            <Route path="/profile" element={ <ProFile/>} />
-              
+            <Route path="/profile" element={ <ProfileContainer/>} />
             <Route path="/dialogs" element={<DialogsContainer />} />
             <Route path="/users" element={<UsersContainer />} />
             <Route path="/news" element={<News />} />

@@ -4,7 +4,7 @@ import preloader from './../../Navbar/Users/load.gif';
 
 const Preloader = (props) => {
     return <div >
-                <img  src={preloader} alt=''/> 
+                <img  src={preloader} alt=''/>
             </div>
         
 };
