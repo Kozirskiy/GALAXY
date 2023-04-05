@@ -40,7 +40,7 @@ const NavBar = (props) => {
               <div>
                 <NavLink className={navData => navData.isActive ? s.active : s.item} to='/settingGalaxy'>Settings Galaxy</NavLink>
               </div>
-              <Preloader/>
+              <Preloader />
             </div>
           <Routes>
             <Route path="/profile" element={ <ProFile/>} />
