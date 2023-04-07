@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './ProFileInfo.module.css';
-import PhotoFace from './mc.png';
+//import PhotoFace from './mc.png';
 import Preloader from '../../../common/Preloader/Preloader';
 
 const ProFileInfo = (props) => {

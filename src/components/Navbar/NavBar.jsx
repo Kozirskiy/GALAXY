@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './Navbar.module.css';
-import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import {  NavLink, Route, Routes } from 'react-router-dom';
 import News from './News/News';
 import Music from './Music/Music';
 import SettingGalaxy from './SettingGalaxy/SettingGalaxy';
@@ -12,7 +12,7 @@ import ProfileContainer from './Profile/ProfileContainer';
 const NavBar = (props) => {
 
   return (
-    <BrowserRouter>
+    // <BrowserRouter>
       <nav className={s.nav}>
         <div className={`${s.nav__wrapper} ${s.dfex}`}>
           <div className={s.nav__link}>
@@ -48,7 +48,7 @@ const NavBar = (props) => {
           </Routes>
         </div>
       </nav>
-    </BrowserRouter>
+    //</BrowserRouter>
   )
 }
 

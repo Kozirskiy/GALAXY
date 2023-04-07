@@ -38,7 +38,14 @@
   }
   .header__content {
     display: flex;
+    align-items: center;
   }
   .header__content img {
     /* width: 20%; */
+  }
+  .loginBlock a {
+    margin-right: 30px;
+    float: right;
+    color: rgb(223, 189, 0);
+    cursor: pointer;
   }
