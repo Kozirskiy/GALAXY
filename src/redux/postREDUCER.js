@@ -15,7 +15,7 @@ let  initialState = {
 
         newPostText: 'Your new post',
         profile:  null,
-        name: null
+        nameFromAPI: 'your name'
     
 };
 
@@ -45,15 +45,17 @@ const postREDUCER = (state = initialState, action) => {
                 newPostText: action.newText
             };
         }
+
         case SET_USER_PROFILE:
             {
                 return {...state,
                     profile: action.profile}
             }
+
         case SET_USER_NAME:
             {
                 return {...state,
-                    name: action.name}
+                    nameFromAPI: action.nameFromAPI}
             }
         
         default: 
@@ -92,9 +94,9 @@ export  const setUserProfile = (profile) =>
        profile 
     });
     
-export  const setUserName = (name) => 
+export  const setUserNameFromAPI = (nameFromAPI) => 
     ({ type: SET_USER_NAME,
-       name 
+        nameFromAPI 
     });
 
 export default postREDUCER;

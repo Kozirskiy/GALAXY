@@ -54,10 +54,11 @@ return (
                             </span>
                             <span>
                                 <div>
-                                    {'u.location.country'}
+                                    {u.userId}
+                                    {/* {'u.location.country'} */}
                                 </div>
                                 <div>
-                                    {'u.location.city'}
+                                    {/* {'u.location.city'} */}
                                 </div>
 
                             </span>

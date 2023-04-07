@@ -1,5 +1,6 @@
 .contentImg__card_img {
     display: flex;
+    align-items: center;
 }
 .contentImg__card_img img {
   width: 100px;
@@ -10,7 +11,12 @@
   margin: 0;
 }
 .contentImg__card_info_name {
-  margin-bottom: 25px !important;
+  /* margin-bottom: 15px !important; */
   font-weight: 700;
-  padding-top: 20px;
+  /* padding-top: 20px; */
+}
+.spanClass {
+  font-weight: 400;
+  font-size: 22px;
+  color: green;
 }
