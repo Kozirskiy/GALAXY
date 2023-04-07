@@ -5,7 +5,7 @@ import Preloader from '../../../common/Preloader/Preloader';
 
 const ProFileInfo = (props) => {
 
-    if (!props.profile) {
+    if (!props.profile && !props.name) {
         return <Preloader />
     }
     return (
@@ -18,9 +18,15 @@ const ProFileInfo = (props) => {
 
                 {/* <img src={PhotoFace} alt="face" /> */}
                 
-                {/* <div className={s.contentImg__card_info}>
+                <div className={s.contentImg__card_info}>
+                    <div>
+                    {props.name}
+                    </div>
+                
                     <p className={s.contentImg__card_info_name}>
-                        Kozyrskyi Oleksandr
+                        
+                        
+                        {/* Kozyrskyi Oleksandr */}
                     </p>
                     <p className={s.contentImg__card_info_date}>
                         Date of birth: 2000
@@ -34,7 +40,7 @@ const ProFileInfo = (props) => {
                     <p className={s.contentImg__card_info_webSite}>
                         Web site: www.mysite.com
                     </p>
-                </div> */}
+                </div>
             </div>
         </div>
     )

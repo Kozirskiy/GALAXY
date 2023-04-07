@@ -16,7 +16,7 @@ const ProFile = (props) => {
             <div className={s.contentImg}>
                 <img className={s.headerContent} src={GalaxyPhoto} alt="bg" />
             </div>
-            <ProFileInfo profile={props.profile}/>
+            <ProFileInfo profile={props.profile} name={props.name}/>
             <MypostContainer 
             />
         </div>
