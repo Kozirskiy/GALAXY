@@ -2,6 +2,7 @@ import React from "react";
 import s from './Users.module.css';
 import userPhoto from './../../../img/users.png';
 import { NavLink } from 'react-router-dom';
+import Preloader from "../../common/Preloader/Preloader";
 
 
 let Users = (props) => {
@@ -16,6 +17,7 @@ let Users = (props) => {
 
 return (
     <div className={s.contentBlock}>
+        {props.isFetching ? <Preloader/> : null}
                 <div className={s.spanBlock}>
                     {pages.map(p => {
                         return <span className={props.currentPage === p ? s.selectedPage : '' + s.hoverPage} onClick={(e) => {

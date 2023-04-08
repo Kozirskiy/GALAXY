@@ -12,7 +12,7 @@ const ProFileInfo = (props) => {
         <div className={s.contentImg__card}>
             <div className={`${s.contentImg__card_img} ${s.dflex}`}>
 
-                <img src={props.profile.photos.large} alt="photoUser" />
+                <img src={props.profile.photos.large} alt="photoUser" className={s.photoProfile}/>
 
                 {/* <img src={PhotoFace} alt="face" /> */}
 
