@@ -62,12 +62,12 @@ return (
                                         'API-KEY': '376b2ee5-27e1-420f-b2c0-9e617cebe7b6'
                                     }
                                 } )
-                                        .then(response => {
+                                    .then(response => {
 
-                                           if  (response.data.resultCode === 0) {
-                                            props.follow(u.id)
-                                           }
-                                        });
+                                        if  (response.data.resultCode === 1) {
+                                        props.follow(u.id)
+                                        }
+                                    });
 
                                 }}> FOLLOW 
                                 </button>}
