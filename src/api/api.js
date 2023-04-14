@@ -9,19 +9,20 @@ const instanse = axios.create({
 });
 
 export const usersAPI = {
-    getUsers (currentPage = 1, pageSize = 10) {
+    getUsers(currentPage = 1, pageSize = 10) {
 
-        return instanse.get(`users?page=${currentPage}&count=${pageSize}`, 
-                        {
-                            withCredentials: true
-                        }).then(response => {
-                            return response.data;
-                    });
-                }
+        return instanse.get(`users?page=${currentPage}&count=${pageSize}`, {
+            withCredentials: true
+        }).then(response => {
+            return response.data;
+        });
+    },
+    follow(userId) {
+        return instanse.post(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`, {}, { })
+    },
+    unfollow(userId) {
+        return instanse.delete(`https://social-network.samuraijs.com/api/1.0/follow/${userId}`)
+    },
+
+
 };
-
-
-
-
-
-
