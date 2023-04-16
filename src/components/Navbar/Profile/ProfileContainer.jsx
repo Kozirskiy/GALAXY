@@ -3,7 +3,7 @@ import axios from 'axios';
 import { connect } from 'react-redux';
 import ProFile from './ProFile';
 import { getUserProfile, setUserProfile } from './../../../redux/postREDUCER';
-import { useLocation, useNavigate, useParams,} from "react-router-dom";
+import { Navigate, useLocation, useNavigate, useParams,} from "react-router-dom";
 // import { headerAPI, usersAPI } from '../../../api/api';
 
 
@@ -32,6 +32,8 @@ class ProfileContainer extends React.Component {
     }
 
     render () {
+
+        if(!this.props.isAuth) return <Navigate to={'/login'}/>;
         return (
             < ProFile 
 
@@ -49,7 +51,8 @@ class ProfileContainer extends React.Component {
 let mapStateToProps = (state) => {
     return {
         profile: state.postPAGE.profile,
-        nameFromAPI: state.postPAGE.nameFromAPI
+        nameFromAPI: state.postPAGE.nameFromAPI,
+        isAuth: state.auth.isAuth
     }
 }
 

@@ -1,0 +1,20 @@
+.contentBlock {
+    padding: 20px;
+    box-shadow: 0px 3px 8px rgb(74, 231, 158);
+    border-radius: 5px;
+    margin: 10px;
+    width: 80%;
+    background: #fff;
+}
+textarea {
+    width: 250px;
+    height: 20px;
+    border-color: rgb(197, 197, 197);
+    border-radius: 3px;
+    color: rgb(190, 190, 190);
+    margin-bottom: 15px;
+}
+.wrapperLoginBox {
+    display: flex;
+    flex-direction: column;
+}

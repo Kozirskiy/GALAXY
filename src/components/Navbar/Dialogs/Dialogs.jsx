@@ -2,6 +2,7 @@ import React from 'react';
 import s from './Dialogs.module.css';
 import DialogItem from './DialogItem';
 import MessageItem from './MessageItem';
+import { Navigate } from 'react-router-dom';
 
 const  Dialogs = (props) => {
 
@@ -23,6 +24,11 @@ const  Dialogs = (props) => {
         let text = newMessageElement.current.value;
         props.onMessage(text);
     };
+
+
+    if(!props.isAuth) return <Navigate to={'/login'}/>;
+
+
     return (
         <div className={s.contentBlock}>
             <h2>Your dialogs in Galaxy</h2>

@@ -61,12 +61,18 @@ import { connect } from 'react-redux';
 //         </StoreContext.Consumer>
 //     )
 // }
+
+
 let mapStateToProps = (state)=> {
     return {
-        messagePAGE: state.messagePAGE
+        messagePAGE: state.messagePAGE,
+        isAuth: state.auth.isAuth
     };
 };
+
+
 let mapDispatchToProps = (dispatch)=> {
+
 return {
     newMessageDialogsGlobal: () => {
         dispatch(addNewMesageActionCreator());
