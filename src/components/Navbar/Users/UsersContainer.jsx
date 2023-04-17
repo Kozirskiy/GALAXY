@@ -1,10 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching, toggleFollowingProgress, getUsers } from './../../../redux/usersREDUCER';
-//import axios from 'axios';
+import { follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers } from './../../../redux/usersREDUCER';
 import Users from "./Users";
 import Preloader from '../../common/Preloader/Preloader';
-// import { getUsers, usersAPI } from '../../../api/api';
+import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
+
 
 
 class UsersContainer extends React.Component {
@@ -27,17 +27,7 @@ class UsersContainer extends React.Component {
 
     onPageChanged = ( pageNumber ) => {
 
-
         this.props.getUsers(pageNumber, this.props.pageSize);
-
-        // this.props.setCurrentPage( pageNumber );
-        // this.props.toggleIsFetching(true);
-
-        // usersAPI.getUsers( pageNumber, this.props.pageSize).then(data => {
-
-        //     this.props.toggleIsFetching(false);
-        //     this.props.setUsers(data.items);
-        // });
 
     };
 
@@ -70,7 +60,9 @@ let mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, {
+// let withRedirect =  withAuthRedirect(UsersContainer);
+
+export default withAuthRedirect(connect(mapStateToProps, {
     follow,
     unfollow,
     setCurrentPage,
@@ -78,7 +70,7 @@ export default connect(mapStateToProps, {
     toggleFollowingProgress,
 
     getUsers
-})
+}))
 
 (UsersContainer);
 
