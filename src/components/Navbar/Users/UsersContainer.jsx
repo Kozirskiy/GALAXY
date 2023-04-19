@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleIsFetching, toggleFollowingProgress, getUsers } from './../../../redux/usersREDUCER';
-//import axios from 'axios';
+import { follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers } from './../../../redux/usersREDUCER';
 import Users from "./Users";
 import Preloader from '../../common/Preloader/Preloader';
-// import { getUsers, usersAPI } from '../../../api/api';
+import { withAuthRedirect } from './../../../hoc/withAuthRedirect';
 
 
 class UsersContainer extends React.Component {
@@ -13,31 +12,11 @@ class UsersContainer extends React.Component {
 
         this.props.getUsers(this.props.currentPage, this.props.pageSize);
 
-        //was code below
-
-        // this.props.toggleIsFetching(true);
-
-        // usersAPI.getUsers(this.props.currentPage, this.props.pageSize).then(data => {
-
-        //         this.props.toggleIsFetching(false);
-        //         this.props.setUsers(data.items);
-        //         this.props.setTotalUsersCount(data.totalCount);
-        //     });
     }
 
     onPageChanged = ( pageNumber ) => {
 
-
         this.props.getUsers(pageNumber, this.props.pageSize);
-
-        // this.props.setCurrentPage( pageNumber );
-        // this.props.toggleIsFetching(true);
-
-        // usersAPI.getUsers( pageNumber, this.props.pageSize).then(data => {
-
-        //     this.props.toggleIsFetching(false);
-        //     this.props.setUsers(data.items);
-        // });
 
     };
 
@@ -59,6 +38,8 @@ class UsersContainer extends React.Component {
     }
 }
 
+let withRedirect =  withAuthRedirect(UsersContainer) 
+
 let mapStateToProps = (state) => {
     return {
         users: state.usersPAGE.users,
@@ -70,17 +51,9 @@ let mapStateToProps = (state) => {
     };
 };
 
-export default connect(mapStateToProps, {
-    follow,
-    unfollow,
-    setCurrentPage,
-    
-    toggleFollowingProgress,
+export default connect(mapStateToProps, { follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers })
 
-    getUsers
-})
-
-(UsersContainer);
+(withRedirect);
 
 // let mapDispatchToProps = (dispatch) => {
 //     return {
