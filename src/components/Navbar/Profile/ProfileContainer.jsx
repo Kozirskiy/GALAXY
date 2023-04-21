@@ -2,13 +2,14 @@ import React from 'react';
 import { connect } from 'react-redux';
 import ProFile from './ProFile';
 import { getUserProfile } from './../../../redux/postREDUCER';
-import { useLocation, useNavigate, useParams,} from "react-router-dom";
+import { useLocation, useNavigate, useParams, } from "react-router-dom";
 import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
+import { compose } from 'redux';
 
 class ProfileContainer extends React.Component {
 
-    componentDidMount () {
-        
+    componentDidMount() {
+
         let userId = this.props.router.params.userId;
 
         if (!userId) {
@@ -19,22 +20,22 @@ class ProfileContainer extends React.Component {
 
     }
 
-    render () {
+    render() {
 
-        
+
         return (
-            < ProFile 
+            < ProFile
 
-                     {...this.props} 
+                {...this.props}
 
-                     profile={this.props.profile} 
+                profile={this.props.profile}
 
-                      />
+            />
         );
     }
 }
 
-let AuthRedirectComponent = withAuthRedirect(ProfileContainer);
+// let AuthRedirectComponent = withAuthRedirect(ProfileContainer);
 
 // let mapStateToPropsForRedirect = (state) => {
 //     return {
@@ -58,12 +59,16 @@ function withRouter(AuthRedirectComponent) {
         let location = useLocation();
         let navigate = useNavigate();
         let params = useParams();
-        return ( <AuthRedirectComponent {...props}  router={{ location, navigate, params }}
-            />
+        return (<AuthRedirectComponent {...props} router={{ location, navigate, params }}
+        />
         );
     }
 
     return ComponentWithRouterProp;
 }
 
-export default connect(mapStateToProps, { getUserProfile}) (withRouter(AuthRedirectComponent));
+export default compose(
+    connect(mapStateToProps, { getUserProfile }),
+    withRouter,
+    // withAuthRedirect
+)(ProfileContainer)

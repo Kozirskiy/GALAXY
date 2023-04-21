@@ -2,6 +2,8 @@ import React from 'react';
 import s from './ProFileInfo.module.css';
 //import PhotoFace from './mc.png';
 import Preloader from '../../../common/Preloader/Preloader';
+import ProfileStatus from './ProfileStatus';
+
 
 const ProFileInfo = (props) => {
 
@@ -10,6 +12,8 @@ const ProFileInfo = (props) => {
     }
     return (
         <div className={s.contentImg__card}>
+
+            <ProfileStatus status={'Status'}/>
             <div className={`${s.contentImg__card_img} ${s.dflex}`}>
 
                 <img src={props.profile.photos.large} alt="photoUser" className={s.photoProfile}/>
