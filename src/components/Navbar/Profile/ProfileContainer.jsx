@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import ProFile from './ProFile';
-import { getUserProfile } from './../../../redux/postREDUCER';
-import { useLocation, useNavigate, useParams, } from "react-router-dom";
+import { getUserProfile, updateStatus, getStatus } from './../../../redux/postREDUCER';
+import { useLocation, useNavigate, useParams} from "react-router-dom";
 import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
 import { compose } from 'redux';
 
@@ -17,6 +17,10 @@ class ProfileContainer extends React.Component {
         }
 
         this.props.getUserProfile(userId);
+        
+        this.props.getStatus(userId);
+        
+        
 
     }
 
@@ -29,6 +33,8 @@ class ProfileContainer extends React.Component {
                 {...this.props}
 
                 profile={this.props.profile}
+                status={this.props.status}
+                updateStatus={this.props.updateStatus}
 
             />
         );
@@ -48,7 +54,8 @@ class ProfileContainer extends React.Component {
 let mapStateToProps = (state) => {
     return {
         profile: state.postPAGE.profile,
-        nameFromAPI: state.postPAGE.nameFromAPI
+        nameFromAPI: state.postPAGE.nameFromAPI,
+        status: state.postPAGE.status
     };
 };
 
@@ -68,7 +75,7 @@ function withRouter(AuthRedirectComponent) {
 }
 
 export default compose(
-    connect(mapStateToProps, { getUserProfile }),
+    connect(mapStateToProps, { getUserProfile, getStatus, updateStatus  }),
     withRouter,
     // withAuthRedirect
 )(ProfileContainer)

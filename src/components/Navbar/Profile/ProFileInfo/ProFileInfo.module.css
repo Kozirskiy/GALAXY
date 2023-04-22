@@ -26,3 +26,12 @@
 .bntStatusSave {
   margin-left: 555px;
 }
+.statusBlock{
+  border-bottom: 1px solid #0b1a3b;
+  width: 220px;
+  font-size: 14px;
+  color: #007206;
+}
+.inputStatus {
+  width: 220px;
+}

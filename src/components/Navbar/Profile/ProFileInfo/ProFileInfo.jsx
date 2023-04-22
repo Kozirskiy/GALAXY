@@ -13,7 +13,7 @@ const ProFileInfo = (props) => {
     return (
         <div className={s.contentImg__card}>
 
-            <ProfileStatus status={'Status'}/>
+            <ProfileStatus status={props.status} updateStatus={ props.updateStatus} />
             <div className={`${s.contentImg__card_img} ${s.dflex}`}>
 
                 <img src={props.profile.photos.large} alt="photoUser" className={s.photoProfile}/>

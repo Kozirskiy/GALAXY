@@ -18,8 +18,9 @@ const ProFile = (props) => {
                 <img className={s.headerContent} src={GalaxyPhoto} alt="bg" />
             </div>
             <ProFileInfo profile={props.profile} 
-                         //name={props.profile.name}
-                        //  nameFromAPI={props.nameFromAPI}
+                         status={props.status}
+                         updateStatus={props.updateStatus}
+                         
                          />
             <MypostContainer 
             />

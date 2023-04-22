@@ -5,40 +5,49 @@ class ProfileStatus extends React.Component {
 
     state = {
         editMode: false,
-        tittle: 'Delevoper 2023'
+        status: this.props.status
     };
     
     activateEditMode = ()  =>  {
+
         this.setState({
             editMode: true
-        });
-        // this.state.editMode = true;
-        // //this.forceUpdate();
+        })
     }
+    
     deactivateEditMode  = ()  =>  {
         this.setState({
             editMode: false
         });
-        // this.state.editMode = true;
-        // //this.forceUpdate();
+        this.props.updateStatus(this.state.status);
+
     }
+
+    onStatusChange = (e) => {
+      this.setState({
+        status: e.currentTarget.value
+      });
+    };
 
     render() {
         return (
             <div>
-                {!this.state.editMode &&
-                    <div>
-                        <span onDoubleClick={this.activateEditMode}> {this.props.status}</span>
-                        
-                    </div>
-                }
+                <div className={s.statusBlock}>
+                    {!this.state.editMode &&
+                        <div>
+                            <span onDoubleClick={this.activateEditMode}>Your status &#8658; {this.props.status || 'no status' }</span>
+                            
+                        </div>
+                    }
 
 
-                {this.state.editMode &&
-                    <div>
-                        <input autoFocus={true} onClick={this.deactivateEditMode} value={this.props.status} />
-                    </div>
-                }
+                    {this.state.editMode &&
+                        <div>
+                            <input onChange={this.onStatusChange} className={s.inputStatus} autoFocus={true} onDoubleClick={this.deactivateEditMode} value={this.state.status} />
+                        </div>
+                    }
+                </div>
+               
             
 
 
