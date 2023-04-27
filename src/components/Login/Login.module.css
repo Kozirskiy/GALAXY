@@ -17,4 +17,8 @@ textarea {
 .wrapperLoginBox {
     display: flex;
     flex-direction: column;
+    margin-top: 30px;
+}
+form input {
+    margin-bottom: 15px;
 }
