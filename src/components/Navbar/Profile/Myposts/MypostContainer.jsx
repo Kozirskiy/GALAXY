@@ -1,4 +1,4 @@
-import { addPostActionCreator, updateNewPostActionCreator } from '../../../../redux/postREDUCER';
+import { addPostActionCreator } from '../../../../redux/postREDUCER';
 import Mypost from './Mypost';
 import { connect } from 'react-redux';
 
@@ -7,17 +7,13 @@ import { connect } from 'react-redux';
 let MapStateToProps = (state) => {
     return {
         postPAGE: state.postPAGE
-        // newPostText: state.postPAGE.newPostText
     };
 };
 
 let MapDispatchToProps = (dispatch) => {
     return {
-        onPostChange: (text) =>  {
-            dispatch(updateNewPostActionCreator(text));
-        },
-        newPostText: () => {
-            dispatch(addPostActionCreator())
+        addPost: (newPostText) => {
+            dispatch(addPostActionCreator(newPostText))
         }
     };
 
