@@ -17,7 +17,6 @@ let  initialState = {
 
         newPostText: 'Your new post',
         profile:  null,
-        nameFromAPI: 'your name',
         status: ''
     
 };
