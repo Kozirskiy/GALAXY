@@ -1,7 +1,7 @@
   .myPost textarea {
     height: 50px;
     width: 100%;
-    border: none;
+    /* border: none; */
     background-color: rgb(235, 235, 235);
     border-radius: 3px;
     box-shadow: 0px 2px 4px rgb(74, 231, 158);
@@ -23,8 +23,8 @@
   }
   textarea {
     outline:none;
-    border: 1px solid red;
-} 
+    /* border: 1px solid red; */
+ } 
   .myPost button {
     border: none;
     width: 120px;
@@ -42,9 +42,3 @@
   display: block;
   margin-right: 20px;
   }
-  /* .myPost__old {
-    display: flex;
-    margin-bottom: 30px;
-    box-shadow: 0px 3px 8px rgba(125, 248, 191, 0.699);
-    border-bottom: 1px solid rgb(255, 35, 35);
-  } */
