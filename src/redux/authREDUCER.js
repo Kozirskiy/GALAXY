@@ -7,7 +7,6 @@ let initialState = {
     email: null,
     login: null,
     isAuth: false
-    // isFetching: false
 };
 
 
@@ -29,13 +28,14 @@ const authREDUCER = (state = initialState, action) => {
 
 };
 
-export const setAuthUserData = (id, email, login) => ({
+export const setAuthUserData = (id, email, login, isAuth) => ({
     type: SET_USER_DATA,
-    data: {
-        id, email, login
+    payload: {
+        id, email, login, isAuth
     }
 
 });
+
 export const getAuthUserData = () => {
     return (dispatch) => {
         authAPI.me()
@@ -45,10 +45,27 @@ export const getAuthUserData = () => {
 
                     let { id, login, email } = response.data.data;
 
-                    dispatch(setAuthUserData(id, login, email));
+                    dispatch(setAuthUserData(id, login, email, true));
                 }
             });
-    }
-}
+    };
+};
+
+export const login = (email, password, rememberMe) => {
+    return (dispatch) => {
+        authAPI.login(email, password, rememberMe)
+            .then(response => {
+              dispatch(getAuthUserData());
+            });
+    };
+};
+export const logout = () => {
+    return (dispatch) => {
+        authAPI.logout()
+            .then(response => {
+              dispatch(getAuthUserData(null, null, null, false));
+            });
+    };
+};
 
 export default authREDUCER;

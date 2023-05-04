@@ -10,6 +10,7 @@ textarea {
     width: 250px;
     height: 20px;
     /* border-color: rgb(197, 197, 197); */
+    border-color: rgb(95, 95, 95); 
     border-radius: 3px;
     color: rgb(190, 190, 190);
     margin-bottom: 15px;
