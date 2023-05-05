@@ -14,14 +14,10 @@ class ProfileContainer extends React.Component {
         let userId = this.props.router.params.userId;
 
         if (!userId) {
-            userId = 28588;
+            userId = this.props.authorizedUserId;
         }
-
-        this.props.getUserProfile(userId);
-
-        
+        this.props.getUserProfile(userId); 
         this.props.getStatus(userId);
-
     }
 
     render() {
@@ -30,7 +26,6 @@ class ProfileContainer extends React.Component {
             < ProFile
 
                 {...this.props}
-
                 profile={this.props.profile}
                 status={this.props.status}
                 updateStatus={this.props.updateStatus}
@@ -40,29 +35,17 @@ class ProfileContainer extends React.Component {
     }
 }
 
-// let AuthRedirectComponent = withAuthRedirect(ProfileContainer);
-
-// let mapStateToPropsForRedirect = (state) => {
-//     return {
-//         isAuth: state.auth.isAuth
-//     };
-// };
-
-// AuthRedirectComponent = connect(mapStateToPropsForRedirect)(AuthRedirectComponent);
-
-
 let AuthRedirectComponent = withAuthRedirect(ProfileContainer);
 
 
 let mapStateToProps = (state) => {
     return {
         profile: state.postPAGE.profile,
-
+        authorizedUserId: state.auth.userId,
+        isAuth: state.auth.isAuth, 
         nameFromAPI: state.postPAGE.nameFromAPI,
         status: state.postPAGE.status
     };
-    
-    
 };
 
 function withRouter(AuthRedirectComponent) {
@@ -86,6 +69,3 @@ export default compose(
     withRouter,
     // withAuthRedirect
 )(ProfileContainer)
-// =======
-// export default connect(mapStateToProps, { getUserProfile })(withRouter(AuthRedirectComponent));
-// >>>>>>> main

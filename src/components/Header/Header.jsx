@@ -3,10 +3,7 @@ import Logo from './logoCopany.png';
 import s from './Header.module.css';
 import { NavLink} from 'react-router-dom';
 
-
-
 const Header = (props) => {
-
     return (
         <header className={s.header}>
             <div className={s.header__content}>
@@ -19,29 +16,16 @@ const Header = (props) => {
                 <div className={s.loginBlock}>
                     < div className={s.logBtn}>
                         {props.isAuth 
-                        ? <div>Your id: {props.id}  <button onClick={props.logout}>Log out</button></div>  
+                        ? <div>Your id: {props.id}     <button onClick={props.logout}>Log out</button></div>  
                         : <NavLink to={'/login'}>Login</NavLink>}
-                            
                     </div>
                     <div className={s.statusAuth}>
                         {props.id ? 'Authorized' : 'NO - Authorized'}
                     </div>
                     {props.fullName}
-
-
                 </div>
-
-
-
             </div>
-
-
-            {/* <Routes>
-                    <Route path="/login" element={<login />} />
-                </Routes> */}
-
         </header>
-
     )
 }
 
