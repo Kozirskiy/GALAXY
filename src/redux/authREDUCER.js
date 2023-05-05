@@ -18,7 +18,7 @@ const authREDUCER = (state = initialState, action) => {
             
             return {
                 ...state,
-                ...action.data,
+                ...action.payload,
                 isAuth: true
             };
 
@@ -54,8 +54,11 @@ export const getAuthUserData = () => {
 export const login = (email, password, rememberMe) => {
     return (dispatch) => {
         authAPI.login(email, password, rememberMe)
+
             .then(response => {
-              dispatch(getAuthUserData());
+                if(response.data.resultCode === 0) {
+                    dispatch(getAuthUserData());
+                }
             });
     };
 };
@@ -63,7 +66,9 @@ export const logout = () => {
     return (dispatch) => {
         authAPI.logout()
             .then(response => {
-              dispatch(getAuthUserData(null, null, null, false));
+                if(response.data.resultCode === 0) {
+                    dispatch(setAuthUserData(null, null, null, false));
+                }
             });
     };
 };

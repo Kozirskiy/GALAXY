@@ -64,17 +64,17 @@
     font-size: 15px;
     font-weight: 700;
     cursor: pointer;
-    padding: 3px 8px;
+    /* padding: 3px 8px;
     border-radius: 3px;
     background-color:rgb(218, 218, 218);
-    border: 1px solid rgb(134, 133, 133);
+    border: 1px solid rgb(134, 133, 133); */
   }
-  .logBtn:hover {
+  /* .logBtn:hover {
     color:rgb(255, 255, 255);
     background-color: rgb(133, 133, 133);
     transition-duration: 1s;
     border: 1px solid #fff;
-  }
+  } */
   .statusAuth {
     color: rgb(71, 117, 1);
     margin-top: 5px;

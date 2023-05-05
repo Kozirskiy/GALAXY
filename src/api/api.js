@@ -57,23 +57,4 @@ export const authAPI = {
     logout() {
        return instanse.delete(`auth/login`);
     }
-
-};
-
-
-export const headerAPI = {
-
-    getProfile(userId) {
-
-        let userId = router.params.userId;
-
-        if (!userId) {
-            userId = 28588;
-        }
-        return instanse.get(`profile/` + userId)
-        .then(response => {
-            setUserProfile(response.data);      
-        });
-
-    }
 };
