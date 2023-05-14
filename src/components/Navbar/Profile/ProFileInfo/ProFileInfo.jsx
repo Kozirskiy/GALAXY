@@ -16,10 +16,10 @@ const ProFileInfo = (props) => {
 
             <ProfileStatus status={props.status} updateStatus={ props.updateStatus} />
             <div className={`${s.contentImg__card_img} ${s.dflex}`}>
-                <div>
+                <div className={s.stylePhoto}>
                     {props.profile.photos.large 
-                    ? <img src={props.profile.photos.large} alt="photoUser" className={s.photoProfile}/> 
-                    : <img src={`${'https://www.freeiconspng.com/thumbs/tiger-png/white-tiger-png-23.png'}`} alt="photoUser2" className={s.photoProfile}/>}
+                    ? <img  src={props.profile.photos.large} alt="photoUser" className={s.photoProfile}/> 
+                    : <img  src={`${'https://www.freeiconspng.com/thumbs/tiger-png/white-tiger-png-23.png'}`} alt="photoUser2" className={s.photoProfile}/>}
                 </div>
                 
 
