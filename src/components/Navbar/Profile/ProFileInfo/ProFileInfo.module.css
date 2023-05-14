@@ -1,6 +1,12 @@
 .contentImg__card_img {
     display: flex;
     align-items: center;
+    border: 1px solid rgb(255, 255, 255);
+    border-radius: 5px;
+    width: 400px;
+    margin-top: 10px;
+    background-color: rgb(230, 230, 230);
+    box-shadow: 0px 3px 8px rgba(150, 150, 150, 0.425);
 }
 .contentImg__card_img img {
   width: 100px;

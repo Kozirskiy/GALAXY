@@ -41,7 +41,7 @@ let AuthRedirectComponent = withAuthRedirect(ProfileContainer);
 let mapStateToProps = (state) => {
     return {
         profile: state.postPAGE.profile,
-        authorizedUserId: state.auth.userId,
+        authorizedUserId: state.auth.id,
         isAuth: state.auth.isAuth, 
         nameFromAPI: state.postPAGE.nameFromAPI,
         status: state.postPAGE.status
