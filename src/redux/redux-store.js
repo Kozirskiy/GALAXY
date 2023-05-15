@@ -5,13 +5,15 @@ import usersREDUCER from "./usersREDUCER";
 import authREDUCER from "./authREDUCER";
 import thunkMiddleware from 'redux-thunk';
 import { reducer as formReducer } from 'redux-form'
+import appREDUCER from "./appREDUCER";
 
 let reducers = combineReducers({
     postPAGE: postREDUCER,
     messagePAGE: messageREDUCER,
     usersPAGE: usersREDUCER,
     auth: authREDUCER,
-    form: formReducer
+    form: formReducer,
+    app: appREDUCER
 });
 
 let store = legacy_createStore(reducers, applyMiddleware(thunkMiddleware));

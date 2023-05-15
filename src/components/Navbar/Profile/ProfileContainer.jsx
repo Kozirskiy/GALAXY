@@ -15,7 +15,12 @@ class ProfileContainer extends React.Component {
 
         if (!userId) {
             userId = this.props.authorizedUserId;
+
+            // if(!userId) {
+            //     this.props.history.push('/login');
+            // }
         }
+        
         this.props.getUserProfile(userId); 
         this.props.getStatus(userId);
     }
@@ -35,7 +40,7 @@ class ProfileContainer extends React.Component {
     }
 }
 
-let AuthRedirectComponent = withAuthRedirect(ProfileContainer);
+// let AuthRedirectComponent = withAuthRedirect(ProfileContainer);
 
 
 let mapStateToProps = (state) => {
@@ -48,14 +53,14 @@ let mapStateToProps = (state) => {
     };
 };
 
-function withRouter(AuthRedirectComponent) {
+function withRouter(Component) {
 
     function ComponentWithRouterProp(props) {
 
         let location = useLocation();
         let navigate = useNavigate();
         let params = useParams();
-        return (<AuthRedirectComponent {...props} router={{ location, navigate, params }}
+        return (<Component {...props} router={{ location, navigate, params }}
         />
         );
     }
@@ -67,5 +72,5 @@ function withRouter(AuthRedirectComponent) {
 export default compose(
     connect(mapStateToProps, { getUserProfile, getStatus, updateStatus  }),
     withRouter,
-    withAuthRedirect
+    // withAuthRedirect
 )(ProfileContainer)
