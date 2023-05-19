@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import ProFile from './ProFile';
 import { getUserProfile, updateStatus, getStatus } from './../../../redux/postREDUCER';
 import { useLocation, useNavigate, useParams} from "react-router-dom";
-import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
+// import { withAuthRedirect } from '../../../hoc/withAuthRedirect';
 import { compose } from 'redux';
 
 

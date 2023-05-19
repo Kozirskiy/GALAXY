@@ -4,10 +4,13 @@ import { follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers } f
 import Users from "./Users";
 import Preloader from '../../common/Preloader/Preloader';
 
-import { withAuthRedirect } from './../../../hoc/withAuthRedirect';
+// import { withAuthRedirect } from './../../../hoc/withAuthRedirect';
 import { compose } from 'redux';
-import { getCurrentPage, getFollowingInProgress, getIsFetching, getPageSize, getTotalUsersCount, getUsersAllUsers } from '../../../redux/user_selectors';
 
+// import { getCurrentPage, getFollowingInProgress, getIsFetching, getPageSize, getTotalUsersCount, getUsersAllUsers } from '../../../redux/user_selectors';
+
+import { followingInProgress, getCurrentPage, getIsFetching, getPageSizeSelector, getTotalUsersCount, getUsersAllUsers } from '../../../redux/user_selectors';
+// import { getUsersAllUsers } from '../../../redux/user_selectors';
 
 
 
@@ -55,46 +58,20 @@ class UsersContainer extends React.Component {
 //         followingInProgress: state.usersPAGE.followingInProgress
 //     };
 // };
+
 let mapStateToProps = (state) => {
     return {
         users: getUsersAllUsers(state),
-        pageSize: getPageSize(state),
+        pageSize: getPageSizeSelector(state),
         totalUsersCount: getTotalUsersCount(state),
         currentPage: getCurrentPage(state),
         isFetching: getIsFetching(state),
-        followingInProgress: getFollowingInProgress(state)
+        followingInProgress: followingInProgress(state)
     };
 };
+   //--> in this func == mapStateToProps we describe how is work our elements of our state <--
 
 export default compose(
     // withAuthRedirect,
     connect(mapStateToProps, { follow, unfollow, setCurrentPage, toggleFollowingProgress, getUsers })
 ) (UsersContainer)
-
-
-
-// let mapDispatchToProps = (dispatch) => {
-//     return {
-//         follow: (userId) => {
-//             dispatch(followAC(userId));
-//         },
-//         unfollow: (userId) => {
-//             dispatch(unfollowAC(userId));
-//         },
-//         setUsers: (users) => {
-//             dispatch(setUsersAC(users));
-//         },
-//         setCurrentPage: (pageNumber) => {
-//             dispatch(setCurrentPageAC(pageNumber));
-//         },
-//         setTotalUsersCount: (totalCount) => {
-//             dispatch(setUsersTotalCountAC(totalCount));
-//         },
-//         toggleIsFetching: (isFetching) => {
-//             dispatch(toggleIsFetchingAC(isFetching))
-//         }
-
-
-//     };
-// };
-

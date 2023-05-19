@@ -32,4 +32,5 @@ const DialogsContainer = connect(mapStateToProps, mapDispatchToProps)(AuthRedire
 
 export default compose(
     connect(mapStateToProps, mapDispatchToProps),
-    withAuthRedirect) (Dialogs);
+    
+    withAuthRedirect) (DialogsContainer);

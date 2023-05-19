@@ -38,10 +38,10 @@ class ProfileStatus extends React.Component {
         }
 
 
-        let a = this.state;
-        let b = this.props;
+        // let a = this.state;
+        // let b = this.props;
 
-        console.log('componentDidUpdate');
+        // console.log('componentDidUpdate');
     }
 
     render() {

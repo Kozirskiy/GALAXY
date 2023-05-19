@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { setUserProfile } from '../redux/postREDUCER';
+// import { setUserProfile } from '../redux/postREDUCER';
 
 const instanse = axios.create({
     withCredentials: true,

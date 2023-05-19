@@ -3,8 +3,8 @@ import s from './Users.module.css';
 import userPhoto from './../../../img/users.png';
 import { NavLink } from 'react-router-dom';
 import Preloader from "../../common/Preloader/Preloader";
-import axios from "axios";
-import { usersAPI } from "../../../api/api";
+// import axios from "axios";
+// import { usersAPI } from "../../../api/api";
 
 
 let Users = (props) => {
@@ -33,7 +33,7 @@ return (
                         <span>
                             <div>
                                 <NavLink to={'/profile/' + u.id} >
-                                    <img src={u.photos.small != null ? u.photos.small : userPhoto} alt="" className={s.photo} />
+                                    <img src={u.photos.small != null ? u.photos.small : userPhoto} alt="alt" className={s.photo} />
                                 </NavLink>
                                 
                                 {/* <div>your photo</div> */}
