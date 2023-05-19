@@ -9,7 +9,7 @@ import { compose } from 'redux';
 
 // import { getCurrentPage, getFollowingInProgress, getIsFetching, getPageSize, getTotalUsersCount, getUsersAllUsers } from '../../../redux/user_selectors';
 
-import { followingInProgress, getCurrentPage, getIsFetching, getPageSizeSelector, getTotalUsersCount, getUsersAllUsers } from '../../../redux/user_selectors';
+import { followingInProgress, getCurrentPage, getIsFetching, getPageSizeSelector, getTotalUsersCount, getUsersAllUsers, getUsersAllUsersSuperSelector } from '../../../redux/user_selectors';
 // import { getUsersAllUsers } from '../../../redux/user_selectors';
 
 
@@ -61,7 +61,8 @@ class UsersContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        users: getUsersAllUsers(state),
+        // users: getUsersAllUsers(state),
+        users: getUsersAllUsersSuperSelector(state),
         pageSize: getPageSizeSelector(state),
         totalUsersCount: getTotalUsersCount(state),
         currentPage: getCurrentPage(state),

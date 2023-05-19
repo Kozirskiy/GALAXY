@@ -1,6 +1,11 @@
-export const getUsersAllUsers = (state) => {
+import { createSelector } from "@reduxjs/toolkit";
+
+const getUsersAllUsers = (state) => {
     return state.usersPAGE.users;
 };
+export const getUsersAllUsersSuperSelector = createSelector (getUsersAllUsers, (users) => {
+    return users.filter( u => true);
+})
 
 export const getPageSizeSelector = (state) => {
     return state.usersPAGE.pageSize;
