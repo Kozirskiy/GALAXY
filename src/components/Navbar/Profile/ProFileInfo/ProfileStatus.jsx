@@ -45,7 +45,7 @@ class ProfileStatus extends React.Component {
     }
 
     render() {
-        console.log('render');
+        // console.log('render');
         return (
             <div>
                 <div className={s.statusBlock}>
@@ -56,19 +56,12 @@ class ProfileStatus extends React.Component {
                         </div>
                     }
 
-
                     {this.state.editMode &&
                         <div>
                             <input onChange={this.onStatusChange} className={s.inputStatus} autoFocus={true} onDoubleClick={this.deactivateEditMode} value={this.state.status} />
                         </div>
                     }
                 </div>
-               
-            
-
-
-
-
             </div>
         )
     }

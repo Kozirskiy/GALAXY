@@ -13,7 +13,7 @@ class HeaderContainer extends React.Component {
     }
     render() {
         if(!this.props.initialised) {
-            return <Preloader/>
+            return <Preloader />
         }
         
 

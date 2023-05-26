@@ -3,7 +3,7 @@ import { createSelector } from "@reduxjs/toolkit";
 const getUsersAllUsers = (state) => {
     return state.usersPAGE.users;
 };
-export const getUsersAllUsersSuperSelector = createSelector (getUsersAllUsers, (users) => {
+export const getUsersSuperSelector = createSelector (getUsersAllUsers, (users) => {
     return users.filter( u => true);
 })
 

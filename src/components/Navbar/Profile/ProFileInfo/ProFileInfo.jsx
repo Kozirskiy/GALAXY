@@ -3,6 +3,7 @@ import s from './ProFileInfo.module.css';
 // import PhotoFace from './mc.png';
 import Preloader from '../../../common/Preloader/Preloader';
 import ProfileStatus from './ProfileStatus';
+import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 
 
 const ProFileInfo = (props) => {
