@@ -3,6 +3,7 @@ import s from './ProFileInfo.module.css';
 // import PhotoFace from './mc.png';
 import Preloader from '../../../common/Preloader/Preloader';
 import ProfileStatus from './ProfileStatus';
+import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 
 
 const ProFileInfo = (props) => {
@@ -14,7 +15,7 @@ const ProFileInfo = (props) => {
     return (
         <div className={s.contentImg__card}>
 
-            <ProfileStatus status={props.status} updateStatus={ props.updateStatus} />
+            <ProfileStatusWithHooks status={props.status} updateStatus={ props.updateStatus} />
             <div className={`${s.contentImg__card_img} ${s.dflex}`}>
                 <div className={s.stylePhoto}>
                     {props.profile.photos.large 
