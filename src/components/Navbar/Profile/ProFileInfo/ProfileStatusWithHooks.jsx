@@ -10,6 +10,11 @@ const ProfileStatusWithHooks = (props) => {
         setStatus(props.status);
     }, [props.status]);
 
+    // let h2 = document.createElement('h2');
+    // h2.innerHTML = 'Developer';
+    // document.querySelector('body').appendChild(h2);
+    
+
     const activateEditMode = () => {
         setEditMode(true);
     };
