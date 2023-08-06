@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PureComponent } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { maxLenghtCreator, required } from '../../../../utils/validators/validators';
 import { Textarea } from '../../../common/FormsControls/FormsControls';
@@ -7,27 +7,34 @@ import Post from './Post/Post';
 
 
 
-const Mypost = (props) => {
+const Mypost = React.memo(props => {
     
+    // shouldComponentUpdate(nextProps, nextState) {
+    //     return nextProps !== this.props || nextState !== this.state;
+    // }
 
-    let state = props.postPAGE;
+    
+        let state = props.postPAGE;
 
-    let myPostElem = state.myPostData.map(p => <Post message={p.message} iconLike={p.iconLike} />);
+        let myPostElem = state.myPostData.map(p => <Post message={p.message} iconLike={p.iconLike} />);
 
-    let onAddPost = (values) => {
-        props.addPost(values.newPostText);
-    };
+        let onAddPost = (values) => {
+            props.addPost(values.newPostText);
+        };
 
-    return (
-        <div className={s.myPost}>
-            <h2 className="myPost__tittle">
-                My Posts
-            </h2>
-        <AddNewPostFormredux onSubmit={onAddPost}/>
-            {myPostElem}
-        </div>
-    )
-}
+        return (
+            <div className={s.myPost}>
+                <h2 className="myPost__tittle">
+                    My Posts
+                </h2>
+            <AddNewPostFormredux onSubmit={onAddPost}/>
+                {myPostElem}
+            </div>
+        )
+    
+    
+});
+
 const maxLenght10 = maxLenghtCreator(10);
 
 const AddNewPostForm = (props) => {
@@ -36,7 +43,6 @@ const AddNewPostForm = (props) => {
             <div>
                 <Field name={'newPostText'} 
                        component={Textarea}
-                    //    type="textarea"
                        placeholder={'New post'} 
                        validate={[required, maxLenght10]}
                        />
