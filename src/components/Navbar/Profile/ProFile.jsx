@@ -17,7 +17,6 @@ const ProFile = (props) => {
             <ProFileInfo profile={props.profile} 
                          status={props.status}
                          updateStatus={props.updateStatus}
-                         
                          />
             <MypostContainer 
             />
