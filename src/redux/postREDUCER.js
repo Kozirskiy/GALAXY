@@ -68,7 +68,7 @@ const postREDUCER = (state = initialState, action) => {
         case DELETE_POST: {
             return {
                 ...state,
-                myPostData: state.myPostData.filter(p => p.id != action.postId)
+                myPostData: state.myPostData.filter(p => p.id !== action.postId)
             }
         }
 
@@ -100,38 +100,26 @@ export const deletePost = (postId) =>
     });
 
 
-export const getUserProfile = (userId) => {
-    return (dispatch) => {
+export const getUserProfile = (userId) => async (dispatch) => {
 
-        usersAPI.getProfile(userId).then(response => {
+        const response = await usersAPI.getProfile(userId);
             dispatch(setUserProfile(response.data));
-        });
     };
-};
 
-export const getStatus = (userId) => {
-    return (dispatch) => {
+export const getStatus = (userId) => async (dispatch) => {
 
-        profileAPI.getStatus(userId)
-            .then(response => {
-                dispatch(setStatus(response.data));
-            });
+        const response = await profileAPI.getStatus(userId)
+            dispatch(setStatus(response.data));
     };
-};
 
-export const updateStatus = (status) => {
-    return (dispatch) => {
+export const updateStatus = (status) => async (dispatch) => {
 
-        profileAPI.updateStatus(status)
-            .then(response => {
-
-                if (response.data.resulCode === 0) {
-                    dispatch(setStatus(status));
-                }
-
-            });
+       const response = await profileAPI.updateStatus(status)
+        if (response.data.resulCode === 0) {
+            dispatch(setStatus(status));
+        }
     };
-};
+
 
 
 export const setUserNameFromAPI = (nameFromAPI) =>

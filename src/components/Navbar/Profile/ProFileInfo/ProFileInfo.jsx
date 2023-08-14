@@ -1,25 +1,23 @@
 import React from 'react';
 import s from './ProFileInfo.module.css';
-// import PhotoFace from './mc.png';
 import Preloader from '../../../common/Preloader/Preloader';
-import ProfileStatus from './ProfileStatus';
 import ProfileStatusWithHooks from './ProfileStatusWithHooks';
 
 
-const ProFileInfo = (props) => {
+const ProFileInfo = ({profile, status, updateStatus}) => {
 
-    if (!props.profile) {
+    if (!profile) {
         return <Preloader />
     }
 
     return (
         <div className={s.contentImg__card}>
 
-            <ProfileStatusWithHooks status={props.status} updateStatus={ props.updateStatus} />
+            <ProfileStatusWithHooks status={status} updateStatus={ updateStatus} />
             <div className={`${s.contentImg__card_img} ${s.dflex}`}>
                 <div className={s.stylePhoto}>
-                    {props.profile.photos.large 
-                    ? <img  src={props.profile.photos.large} alt="photoUser" className={s.photoProfile}/> 
+                    {profile.photos.large 
+                    ? <img  src={profile.photos.large} alt="photoUser" className={s.photoProfile}/> 
                     : <img  src={`${'https://www.freeiconspng.com/thumbs/tiger-png/white-tiger-png-23.png'}`} alt="photoUser2" className={s.photoProfile}/>}
                 </div>
                 
@@ -29,36 +27,21 @@ const ProFileInfo = (props) => {
                 <div className={s.contentImg__card_info}>
 
                     <p className={s.contentImg__card_info_name}>
-                       Name: <span className={s.spanClass}> {props.profile.fullName}</span>
+                       Name: <span className={s.spanClass}> {profile.fullName}</span>
                         
                     </p>
 
                     <p className={s.contentImg__card_info_name}>
 
-                    Number of ID: <span className={s.spanClass}> {props.profile.userId}</span> 
+                    Number of ID: <span className={s.spanClass}> {profile.userId}</span> 
 
                     </p>
 
                     <p className={s.contentImg__card_info_name}>
-                      Contacts: <span className={s.spanClass}> {props.profile.contacts.github}</span>
+                      Contacts: <span className={s.spanClass}> {profile.contacts.github}</span>
                       
                     </p>
 
-                    {/* <p className={s.contentImg__card_info_name}>
-                        Kozyrskyi Oleksandr
-                    </p>
-                    <p className={s.contentImg__card_info_date}>
-                        Date of birth: 2000
-                    </p>
-                    <p className={s.contentImg__card_info_city}>
-                        City: Kyiv
-                    </p>
-                    <p className={s.contentImg__card_info_education}>
-                        Education: NUTSU
-                    </p>
-                    <p className={s.contentImg__card_info_webSite}>
-                        Web site: www.mysite.com
-                    </p> */}
                 </div>
             </div>
         </div>
