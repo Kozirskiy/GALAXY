@@ -3,7 +3,7 @@ import s from './ProFile.module.css';
 import GalaxyPhoto from './galaxy.jpg';
 import ProFileInfo from './ProFileInfo/ProFileInfo';
 import MypostContainer from './Myposts/MypostContainer';
-// import { Navigate } from 'react-router-dom';
+
 
 
 const ProFile = (props) => {
