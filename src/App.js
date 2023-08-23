@@ -1,19 +1,8 @@
 import  React from 'react';
 import './App.css';
-import Preloader from './components/common/Preloader/Preloader';
 import HeaderContainer from './components/Header/HeaderContainer';
 import NavBar from './components/Navbar/NavBar';
-import { initialiseApp } from './redux/appREDUCER';
-import { Routes, Route } from 'react-router-dom';
-import ProfileContainer from './components/Navbar/Profile/ProfileContainer';
-import DialogsContainer from './components/Navbar/Dialogs/DialogsContainer';
-import UsersContainer from './components/Navbar/Users/UsersContainer';
-import News from './components/Navbar/News/News';
-import Music from './components/Navbar/Music/Music';
-import SettingGalaxy from './components/Navbar/SettingGalaxy/SettingGalaxy';
-// import LoginPage from './components/Navbar/LoginPage/LoginPage';
-import { compose } from 'redux';
-import { connect } from 'react-redux';
+
 
 const App = (props) => {
 
