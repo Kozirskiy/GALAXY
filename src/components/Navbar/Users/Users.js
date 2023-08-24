@@ -15,7 +15,7 @@ return   (
                 <div className={s.paginatorStyle}>
                     <Paginator currentPage= {currentPage}
                                 onPageChanged = {onPageChanged}
-                                totalUsersCount = {totalUsersCount}
+                                totalItemsCount = {totalUsersCount}
                                 pageSize = {pageSize}
                     />
                 </div>
