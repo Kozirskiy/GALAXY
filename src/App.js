@@ -1,6 +1,9 @@
 import  React from 'react';
 import './App.css';
 import HeaderContainer from './components/Header/HeaderContainer';
+
+// const NavBar = React.lazy(() => import ('./components/Navbar/NavBar'));
+
 import NavBar from './components/Navbar/NavBar';
 
 
